@@ -16,6 +16,7 @@
 	if (filter_result)
 		REPORT_CHAT_FILTER_TO_USER(usr, filter_result)
 		log_filter("OOC", message, filter_result)
+		message_admins("[ADMIN_LOOKUPFLW(usr)] has tried to use the prohibited word \"[filter_result[CHAT_FILTER_INDEX_WORD]]\" in Dead chat Message: \"[message]\"")
 		return
 
 	var/list/soft_filter_result = CAN_BYPASS_FILTER(src) ? null : is_soft_ooc_filtered(message)
