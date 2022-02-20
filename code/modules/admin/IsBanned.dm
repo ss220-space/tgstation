@@ -44,6 +44,11 @@
 			else
 				log_access("Failed Login: [key] - Not on whitelist")
 				return list("reason"="whitelist", "desc" = "\nReason: You are not on the white list for this server")
+		if(CONFIG_GET(flag/usewhitelist_nojobbanned) && !admin)
+			for (var/datum/job/job as anything in SSjob?.all_occupations)
+				if (is_banned_from(ckey, job.title))
+					log_access("Failed Login: [key] - No jobbanned policy")
+					return list("reason"="jobbanned", "desc" = "\nReason: You are on the white list for this server but no jobbanned policy is in effect")
 
 	//Guest Checking
 	if(!real_bans_only && !C && is_guest_key(key))
