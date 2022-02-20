@@ -11,7 +11,7 @@
 #define SANITIZE_FILENAME(text) (GLOB.filename_forbidden_chars.Replace(text, ""))
 
 /// Simply removes the < and > characters, and limits the length of the message.
-#define STRIP_HTML_SIMPLE(text, limit) (GLOB.angular_brackets.Replace(copytext(text, 1, limit), ""))
+#define STRIP_HTML_SIMPLE(text, limit) (GLOB.angular_brackets.Replace_char(copytext_char(text, 1, limit), ""))
 
 ///Index access defines for paper/var/add_info_style
 #define ADD_INFO_COLOR 1
