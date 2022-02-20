@@ -35,6 +35,8 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	var/list/filter_result = is_ooc_filtered(msg)
 	if (!CAN_BYPASS_FILTER(usr) && filter_result)
 		REPORT_CHAT_FILTER_TO_USER(usr, filter_result)
+		message_admins("[ADMIN_LOOKUPFLW(usr)] has tried to use the prohibited word \"[filter_result[CHAT_FILTER_INDEX_WORD]]\" in OOC Message: \"[msg]\"")
+		log_admin_private("[key_name(usr)] has tried to use the prohibited word \"[filter_result[CHAT_FILTER_INDEX_WORD]]\" in OOC Message: \"[msg]\"")
 		return
 
 	// Protect filter bypassers from themselves.

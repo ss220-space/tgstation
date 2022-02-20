@@ -111,6 +111,8 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 		to_chat(src, span_warning("That message contained a word prohibited in IC chat! Consider reviewing the server rules."))
 		to_chat(src, span_warning("\"[message]\""))
 		REPORT_CHAT_FILTER_TO_USER(src, filter_result)
+		message_admins("[ADMIN_LOOKUPFLW(usr)] has tried to use the prohibited word \"[filter_result[CHAT_FILTER_INDEX_WORD]]\" in Say Message: \"[message]\"")
+		log_admin_private("[key_name(usr)] has tried to use the prohibited word \"[filter_result[CHAT_FILTER_INDEX_WORD]]\" in Say Message: \"[message]\"")
 		SSblackbox.record_feedback("tally", "ic_blocked_words", 1, lowertext(config.ic_filter_regex.match))
 		return
 

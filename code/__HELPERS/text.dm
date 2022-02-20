@@ -36,7 +36,7 @@
 /// Runs byond's html encoding sanitization proc, after replacing new-lines and tabs for the # character.
 /proc/sanitize(text)
 	var/static/regex/regex = regex(@"[\n\t]", "g")
-	return html_encode(regex.Replace(text, "#"))
+	return html_encode(regex.Replace_char(text, "#"))
 
 
 /// Runs STRIP_HTML_SIMPLE and sanitize.
@@ -61,14 +61,14 @@
  */
 /proc/htmlrendertext(t)
 	// Trim "whitespace" by lazily capturing word characters in the middle
-	var/static/regex/matchMiddle = new(@"^\s*([\W\w]*?)\s*$")
-	if(matchMiddle.Find(t) == 0)
+	var/static/regex/matchMiddle = new(@"^\s*([\W\wа-яё]*?)\s*$", "i")
+	if(matchMiddle.Find_char(t) == 0)
 		return t
 	t = matchMiddle.group[1]
 
 	// Replace any non-space whitespace characters with spaces, and also multiple occurences with just one space
 	var/static/regex/matchSpacing = new(@"\s+", "g")
-	t = replacetext(t, matchSpacing, " ")
+	t = replacetext_char(t, matchSpacing, " ")
 
 	return t
 
@@ -107,7 +107,7 @@
 	var/name = input(user, message, title, default) as text|null
 
 	if(no_trim)
-		return copytext(html_encode(name), 1, max_length)
+		return copytext_char(html_encode(name), 1, max_length)
 	else
 		return trim(html_encode(name), max_length) //trim is "outside" because html_encode can expand single symbols into multiple symbols (such as turning < into &lt;)
 
@@ -272,16 +272,16 @@
 
 //Returns a string with reserved characters and spaces before the first letter removed
 /proc/trim_left(text)
-	for (var/i = 1 to length(text))
-		if (text2ascii(text, i) > 32)
-			return copytext(text, i)
+	for (var/i = 1 to length_char(text))
+		if (text2ascii_char(text, i) > 32)
+			return copytext_char(text, i)
 	return ""
 
 //Returns a string with reserved characters and spaces after the last letter removed
 /proc/trim_right(text)
-	for (var/i = length(text), i > 0, i--)
-		if (text2ascii(text, i) > 32)
-			return copytext(text, 1, i + 1)
+	for (var/i = length_char(text), i > 0, i--)
+		if (text2ascii_char(text, i) > 32)
+			return copytext_char(text, 1, i + 1)
 	return ""
 
 /**
@@ -296,8 +296,8 @@
  * * max_length - integer length to truncate at
  */
 /proc/truncate(text, max_length)
-	if(length(text) > max_length)
-		return copytext(text, 1, max_length)
+	if(length_char(text) > max_length)
+		return copytext_char(text, 1, max_length)
 	return text
 
 //Returns a string with reserved characters and spaces before the first word and after the last word removed.
@@ -311,7 +311,7 @@
 	. = t
 	if(t)
 		. = t[1]
-		return uppertext(.) + copytext(t, 1 + length(.))
+		return uppertext(.) + copytext_char(t, 1 + length_char(.))
 
 /proc/stringmerge(text,compare,replace = "*")
 //This proc fills in all spaces with the "replace" var (* by default) with whatever
