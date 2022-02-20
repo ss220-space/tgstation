@@ -69,6 +69,7 @@
 		to_chat(src, span_warning("\"[message]\""))
 		REPORT_CHAT_FILTER_TO_USER(src, filter_result)
 		log_filter("IC", message, filter_result)
+		message_admins("[ADMIN_LOOKUPFLW(usr)] has tried to use the prohibited word \"[filter_result[CHAT_FILTER_INDEX_WORD]]\" in Say Message: \"[message]\"")
 		SSblackbox.record_feedback("tally", "ic_blocked_words", 1, lowertext(config.ic_filter_regex.match))
 		return FALSE
 
