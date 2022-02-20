@@ -32,6 +32,8 @@
 	var/list/filter_result = CAN_BYPASS_FILTER(usr) ? null : is_ic_filtered(input)
 	if(filter_result)
 		REPORT_CHAT_FILTER_TO_USER(usr, filter_result)
+		log_filter("CULTCOMMS", input, filter_result)
+		message_admins("[ADMIN_LOOKUPFLW(usr)] has tried to use the prohibited word \"[filter_result[CHAT_FILTER_INDEX_WORD]]\" in Cult Message: \"[html_encode(input)]\"")
 		return
 
 	var/list/soft_filter_result = CAN_BYPASS_FILTER(usr) ? null : is_soft_ic_filtered(input)
