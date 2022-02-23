@@ -23,7 +23,7 @@
 	. = ..()
 	if(.)
 		return
-	var/fullscreen = (winget(user, "mainwindow", "is-maximized") == "true") ? TRUE : FALSE
+	var/fullscreen = (winget(user, "mainwindow", "is-maximized") == "true")```
 	user.toggle_fullscreen(!fullscreen)
 
 /client/proc/toggle_fullscreen(fullscreen = TRUE)
