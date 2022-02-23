@@ -30,5 +30,5 @@
 	if(fullscreen)
 		winset(src, "mainwindow", "is-maximized=false;can-resize=false;titlebar=false;menus=menu") //Reset to not maximized and turn off titlebar.
 		winset(src, "mainwindow", "is-maximized=true") //Now set to maximized. We have to do this separately, so that the taskbar is appropriately covered.
-	else
+	else if(winget(src, "mainwindow", "is-maximized") == "true")
 		winset(src, "mainwindow", "is-maximized=false;can-resize=true;titlebar=true;menus=menu")
