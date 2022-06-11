@@ -142,6 +142,12 @@
 	config_entry_value = text2num(trim(str_val)) != 0
 	return TRUE
 
+/datum/config_entry/flag/mentors_mobname_only
+
+/datum/config_entry/flag/mentor_legacy_system	//Defines whether the server uses the legacy mentor system with mentors.txt or the SQL system
+	protection = CONFIG_ENTRY_LOCKED
+
+
 /// List config entry, used for configuring a list of strings
 /datum/config_entry/str_list
 	abstract_type = /datum/config_entry/str_list

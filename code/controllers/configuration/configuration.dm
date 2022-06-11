@@ -21,6 +21,9 @@
 	var/motd
 	var/policy
 
+	var/mentors_mobname_only = FALSE		// Only display mob name to mentors in mentorhelps
+	var/mentor_legacy_system = FALSE		// Whether to use the legacy mentor system (flat file) instead of SQL
+
 	/// If the configuration is loaded
 	var/loaded = FALSE
 
