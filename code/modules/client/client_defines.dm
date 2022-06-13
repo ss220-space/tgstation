@@ -41,6 +41,8 @@
 	show_verb_panel = FALSE
 	///Contains admin info. Null if client is not an admin.
 	var/datum/admins/holder = null
+	///Acts the same way holder does towards admin: it holds the mentor datum. if set, the guy's a mentor.
+	var/datum/mentors/mentor_datum = null
 	///Needs to implement InterceptClickOn(user,params,atom) proc
 	var/datum/click_intercept = null
 	///Time when the click was intercepted

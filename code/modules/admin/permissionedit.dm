@@ -561,3 +561,44 @@
 		return
 	qdel(query_sync_lastadminrank)
 	to_chat(usr, span_admin("Sync of [admin_key] successful."), confidential = TRUE)
+
+/client/proc/edit_mentor_permissions()
+	set category = "Admin"
+	set name = "Permissions Panel Mentor"
+	set desc = "Edit mentor permissions"
+	if(!check_rights(R_PERMISSIONS))
+		return
+	usr.client.mentor_datum.edit_mentor_permissions()
+
+/datum/mentors/proc/edit_mentor_permissions(action, target, operation, page)
+	if(!check_rights(R_PERMISSIONS))
+		return
+	var/datum/asset/asset_cache_datum = get_asset_datum(/datum/asset/group/permissions)
+	asset_cache_datum.send(usr)
+	var/list/output = list("<link rel='stylesheet' type='text/css' href='[SSassets.transport.get_asset_url("panels.css")]'>")
+	output += {"
+		<head>
+		<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+		<title>Permissions Panel</title>
+		<script type='text/javascript' src='[SSassets.transport.get_asset_url("search.js")]'></script>
+		</head>
+		<body onload='selectTextField();updateSearch();'>
+		<div id='main'><table id='searchable' cellspacing='0'>
+		<tr class='title'>
+		<th style='width:150px;'>CKEY <br><a href='?src=[REF(src)];[HrefToken()];editmentor=add'>\[ADD\]</a></th>
+		<th style='width:125px;'>ISMENTOR</th>
+		</tr>
+		"}
+	for(var/mentor_ckey in GLOB.mentor_datums)
+
+		output += "<tr>"
+		output += "<td style='text-align:center;'>[mentor_ckey]</td>"
+		if(check_rights_for(GLOB.directory[mentor_ckey], R_ADMIN))
+			output += "<td>\[ADMIN\]</td>"
+		else
+			output += "<td><a href='?src=[REF(src)];[HrefToken()];editmentor=remove;key=[mentor_ckey]'>\[REMOVE\]</a></td>"
+		output += "</tr>"
+	output += "</table></div><div id='top'><b>Search:</b> <input type='text' id='filter' value='' style='width:70%;' onkeyup='updateSearch();'></div></body>"
+	if(QDELETED(usr))
+		return
+	usr << browse("<!DOCTYPE html><html>[jointext(output, "")]</html>","window=editmentor;size=300x650")

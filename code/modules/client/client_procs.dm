@@ -37,6 +37,8 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 /client/Topic(href, href_list, hsrc, hsrc_command)
 	if(!usr || usr != mob) //stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
+	if(mentor_client_procs(href_list))
+		return
 
 #ifndef TESTING
 	if (lowertext(hsrc_command) == "_debug") //disable the integrated byond vv in the client side debugging tools since it doesn't respect vv read protections
@@ -432,6 +434,8 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		GLOB.host = key
 		world.update_status()
 
+
+	mentor_datum_set()
 	if(holder)
 		add_admin_verbs()
 		var/memo_message = get_message_output("memo")
@@ -554,6 +558,8 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		QDEL_LIST(credits)
 	if(obj_window)
 		QDEL_NULL(obj_window)
+	if(GLOB.mentors[src])
+		GLOB.mentors -= src
 	if(holder)
 		adminGreet(1)
 		holder.owner = null

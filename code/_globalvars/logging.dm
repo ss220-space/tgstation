@@ -97,6 +97,9 @@ GLOBAL_PROTECT(lastsignalers)
 GLOBAL_LIST_EMPTY(lawchanges)
 GLOBAL_PROTECT(lawchanges)
 
+GLOBAL_LIST_EMPTY(mentorlog)
+GLOBAL_PROTECT(mentorlog)
+
 #undef DECLARE_LOG
 #undef DECLARE_LOG_NAMED
 #undef START_LOG
