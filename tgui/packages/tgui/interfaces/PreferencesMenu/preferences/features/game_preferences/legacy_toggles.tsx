@@ -24,6 +24,13 @@ export const combohud_lighting: FeatureToggle = {
   component: CheckboxInput,
 };
 
+export const auto_dementor_pref: FeatureToggle = {
+  name: "Auto dementor",
+  category: "ADMIN",
+  description: "When enabled, you will automatically dementor.",
+  component: CheckboxInput,
+};
+
 export const deadmin_always: FeatureToggle = {
   name: 'Auto deadmin - Always',
   category: 'ADMIN',
