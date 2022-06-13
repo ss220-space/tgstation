@@ -142,6 +142,8 @@
 	config_entry_value = text2num(trim(str_val)) != 0
 	return TRUE
 
+/datum/config_entry/flag/mentors_mobname_only
+
 /// List config entry, used for configuring a list of strings
 /datum/config_entry/str_list
 	abstract_type = /datum/config_entry/str_list
