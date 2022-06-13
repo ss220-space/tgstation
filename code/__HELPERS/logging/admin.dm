@@ -29,6 +29,10 @@
 	if (CONFIG_GET(flag/log_adminchat))
 		WRITE_LOG(GLOB.world_game_log, "ADMIN: DSAY: [text]")
 
+/proc/log_mentor(text)
+	GLOB.mentorlog.Add(text)
+	WRITE_FILE(GLOB.world_game_log, "MENTOR: [text]")
+
 /**
  * Writes to a special log file if the log_suspicious_login config flag is set,
  * which is intended to contain all logins that failed under suspicious circumstances.
