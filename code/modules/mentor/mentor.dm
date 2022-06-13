@@ -61,7 +61,6 @@ GLOBAL_PROTECT(mentor_href_token)
 		C.remove_mentor_verbs()
 		C.mentor_datum = null
 	GLOB.mentors.Cut()
-	//if(CONFIG_GET(flag/mentor_legacy_system))//legacy
 	var/list/lines = world.file2list("[global.config.directory]/mentors.txt")
 	for(var/line in lines)
 		if(!length(line))
@@ -69,19 +68,6 @@ GLOBAL_PROTECT(mentor_href_token)
 		if(findtextEx(line, "#", 1, 2))
 			continue
 		new /datum/mentors(line)
-	/*else//Database
-		if(!SSdbcore.Connect())
-			log_world("Failed to connect to database in load_mentors(). Reverting to legacy system.")
-			WRITE_FILE(GLOB.world_game_log, "Failed to connect to database in load_mentors(). Reverting to legacy system.")
-			CONFIG_SET(flag/mentor_legacy_system, TRUE)
-			load_mentors()
-			return
-		var/datum/DBQuery/query_load_mentors = SSdbcore.NewQuery("SELECT ckey FROM [format_table_name("mentor")]")
-		if(!query_load_mentors.Execute())
-			return
-		while(query_load_mentors.NextRow())
-			var/ckey = ckey(query_load_mentors.item[1])
-			new /datum/mentors(ckey)*/
 
 /// Proc to save the current mentor list into the config, overwriting it.
 /proc/save_mentors()
@@ -109,6 +95,9 @@ GLOBAL_PROTECT(mentor_href_token)
 	rustg_file_write(mentor_list, "[global.config.directory]/mentors.txt")
 
 /datum/admins/proc/mentor_log_secret()
+	set category = "Admin"
+	set name = "Mentor Logs"
+	set desc = "Check what mentors have done for this round."
 	var/dat = "<B>Mentor Log<HR></B>"
 	for(var/l in GLOB.mentorlog)
 		dat += "<li>[l]</li>"

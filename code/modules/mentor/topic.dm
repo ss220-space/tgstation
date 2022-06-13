@@ -1,16 +1,3 @@
-/datum/mentors/proc/CheckMentorHREF(href, href_list)
-	var/auth = href_list["mentor_token"]
-	. = auth && (auth == href_token || auth == GLOB.mentor_href_token)
-	if(.)
-		return
-	var/msg = !auth ? "no" : "a bad"
-	message_admins("[key_name_admin(usr)] clicked an href with [msg] authorization key!")
-	if(CONFIG_GET(flag/debug_admin_hrefs))
-		message_admins("Debug mode enabled, call not blocked. Please ask your coders to review this round's logs.")
-		log_world("UAH: [href]")
-		return TRUE
-	log_admin_private("[key_name(usr)] clicked an href with [msg] authorization key! [href]")
-
 /datum/mentors/Topic(href, list/href_list)
 	..()
 
@@ -19,8 +6,8 @@
 		log_admin("[key_name(usr)] tried to use the mentor panel without authorization.")
 		return
 
-	if(!CheckMentorHREF(href, href_list))
-		return
+	if(href_list["editmentor"])
+		edit_rights_topic(href_list)
 
 /datum/mentors/proc/edit_rights_topic(list/href_list)
 	if(!check_rights(R_PERMISSIONS))

@@ -585,7 +585,7 @@
 		<body onload='selectTextField();updateSearch();'>
 		<div id='main'><table id='searchable' cellspacing='0'>
 		<tr class='title'>
-		<th style='width:150px;'>CKEY <a class='small' href='?src=[REF(src)];[HrefToken()];editmentor=add'>\[+\]</a></th>
+		<th style='width:150px;'>CKEY <br><a href='?src=[REF(src)];[HrefToken()];editmentor=add'>\[ADD\]</a></th>
 		<th style='width:125px;'>ISMENTOR</th>
 		</tr>
 		"}
@@ -593,7 +593,10 @@
 
 		output += "<tr>"
 		output += "<td style='text-align:center;'>[mentor_ckey]</td>"
-		output += "<td><a href='?src=[REF(src)];[HrefToken()];editmentor=remove'>\[REMOVE\]</a></td>"
+		if(check_rights_for(GLOB.directory[mentor_ckey], R_ADMIN))
+			output += "<td>\[ADMIN\]</td>"
+		else
+			output += "<td><a href='?src=[REF(src)];[HrefToken()];editmentor=remove;key=[mentor_ckey]'>\[REMOVE\]</a></td>"
 		output += "</tr>"
 	output += "</table></div><div id='top'><b>Search:</b> <input type='text' id='filter' value='' style='width:70%;' onkeyup='updateSearch();'></div></body>"
 	if(QDELETED(usr))
