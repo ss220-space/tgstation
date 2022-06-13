@@ -35,3 +35,10 @@ GLOBAL_LIST_INIT(dream_strings, world.file2list("strings/dreamstrings.txt"))
 GLOBAL_LIST_INIT(vampire_house_names, world.file2list("strings/names/vampire_house_names.txt"))
 //loaded on startup because of "
 //would include in rsc if ' was used
+
+GLOBAL_LIST_INIT(jobs, world.file2list("strings/names/jobs.txt"))
+GLOBAL_LIST_INIT(cocktails, world.file2list("strings/names/cocktails.txt"))
+GLOBAL_LIST_INIT(locations, world.file2list("strings/names/locations.txt"))
+GLOBAL_LIST_INIT(ru_nouns, world.file2list("strings/names/ru_nouns.txt"))
+GLOBAL_LIST_INIT(ru_adjectives, world.file2list("strings/names/ru_adjectives.txt"))
+GLOBAL_LIST_INIT(ru_verbs, world.file2list("strings/names/ru_verbs.txt"))
