@@ -67,6 +67,7 @@ SUBSYSTEM_DEF(ticker)
 	var/emergency_reason
 
 /datum/controller/subsystem/ticker/Initialize()
+	load_mentors()
 	var/list/byond_sound_formats = list(
 		"mid" = TRUE,
 		"midi" = TRUE,
