@@ -25,7 +25,7 @@
 	required_candidates = 1
 	weight = 5
 	cost = 8 // Avoid raising traitor threat above this, as it is the default low cost ruleset.
-	scaling_cost = 9
+	scaling_cost = 12
 	requirements = list(8,8,8,8,8,8,8,8,8,8)
 	antag_cap = list("denominator" = 24)
 	var/autotraitor_cooldown = (15 MINUTES)
@@ -111,9 +111,9 @@
 		JOB_CYBORG,
 	)
 	required_candidates = 2
-	weight = 2
-	cost = 12
-	scaling_cost = 15
+	weight = 3
+	cost = 10
+	scaling_cost = 16
 	requirements = list(40,30,30,20,20,15,15,15,10,10)
 	antag_cap = 2 // Can pick 3 per team, but rare enough it doesn't matter.
 	var/list/datum/team/brother_team/pre_brother_teams = list()
@@ -271,7 +271,7 @@
 	required_candidates = 1
 	weight = 2
 	cost = 20
-	requirements = list(90,90,90,80,60,40,30,20,10,10)
+	requirements = list(101,101,80,70,60,40,30,20,10,10)
 	var/list/roundstart_wizards = list()
 
 /datum/dynamic_ruleset/roundstart/wizard/acceptable(population=0, threat=0)
@@ -386,7 +386,7 @@
 	required_candidates = 5
 	weight = 3
 	cost = 20
-	requirements = list(90,90,90,80,60,40,30,20,10,10)
+	requirements = list(101,101,90,80,60,40,30,20,10,10)
 	flags = HIGH_IMPACT_RULESET
 	antag_cap = list("denominator" = 18, "offset" = 1)
 	var/datum/team/nuclear/nuke_team
@@ -580,7 +580,7 @@
 	)
 	required_candidates = 3
 	weight = 1
-	cost = 19
+	cost = 20
 	requirements = list(101,101,40,40,30,20,10,10,10,10)
 	flags = HIGH_IMPACT_RULESET
 	/// A reference to the handler that is used to run pre_execute(), execute(), etc..
