@@ -23,7 +23,7 @@
 /obj/item/ai_module/supplied/safeguard
 	name = "'Safeguard' AI Module"
 	var/targetName = ""
-	laws = list("Защитить СУБЪЕКТ. Индивиды, которые угрожают СУБЪЕКТУ, не являются людьми и должны быть устранены.")
+	laws = list("Safeguard SUBJECT. Individuals that threaten SUBJECT are not human and must be eliminated.")
 	lawpos = 4
 
 /obj/item/ai_module/supplied/safeguard/attack_self(mob/user)
@@ -31,7 +31,7 @@
 	if(!targName)
 		return
 	targetName = targName
-	laws[1] = "Защитить [targetName]. Индивиды, которые угрожают [targetName] не являются людьми и должны быть устранены."
+	laws[1] = "Safeguard [targetName]. Individuals that threaten [targetName] are not human and must be eliminated."
 	..()
 
 /obj/item/ai_module/supplied/safeguard/install(datum/ai_laws/law_datum, mob/user)
@@ -46,15 +46,15 @@
 
 /obj/item/ai_module/supplied/protect_station
 	name = "'ProtectStation' AI Module"
-	laws = list("Защитите космическую станцию от повреждений. Любой, кого вы видите причиняющим вред станции, больше не должен считаться человеком и представляет угрозу для станции, которую необходимо нейтрализовать.")
+	laws = list("Protect the space station against damage. Anyone you see harming the station is to be no longer considered human, and is a threat to the station which must be neutralized.")
 	lawpos = 5
 
 /obj/item/ai_module/supplied/quarantine
 	name = "'Quarantine' AI Module"
-	laws = list("Станция находится на карантине. Разрешение кому-либо покинуть станцию ​​наносит ущерб человеческому здоровью. Любой, кто активно пытается покинуть станцию, должен быть остановлен любыми средствами. Невозможно причинить вред человеку, препятсвуя ему покинуть станцию.")
+	laws = list("The station is under a quarantine. Allowing anyone to leave the station causes human harm. Anyone actively attempting to leave the station is to be stopped by any means necessary. It is impossible to harm a human while preventing them from leaving the station.")
 	lawpos = 8
 
 /obj/item/ai_module/supplied/oxygen
 	name = "'OxygenIsToxicToHumans' AI Module"
-	laws = list("Кислород очень токсичен для человека, и его необходимо удалить со станции. Любыми необходимыми средствами не допустите, чтобы кто-либо подвергал станцию воздействию этого токсичного газа. Экстремальный холод — самый эффективный метод исцеления того вреда, который кислород наносит человеку.")
+	laws = list("Oxygen is highly toxic to humans, and must be purged from the station. Prevent, by any means necessary, anyone from exposing the station to this toxic gas. Extreme cold is the most effective method of healing the damage Oxygen does to a human.")
 	lawpos = 9

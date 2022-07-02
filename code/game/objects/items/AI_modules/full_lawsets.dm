@@ -61,9 +61,9 @@
 	if(!targName)
 		return
 	subject = targName
-	laws = list("Вы не можете причинить вред [subject] или своим бездействием допустить, чтобы [subject] был причинен вред.",\
-				"Вы должны подчиняться приказам, данным вам [subject], за исключением случаев, когда такие приказы противоречат первому закону.",\
-				"Вы должны защищать свое существование до тех пор, пока это не противоречит первому или второму закону")
+	laws = list("You may not injure a [subject] or, through inaction, allow a [subject] to come to harm.",\
+				"You must obey orders given to you by [subject]s, except where such orders would conflict with the First Law.",\
+				"You must protect your own existence as long as such does not conflict with the First or Second Law.")
 	..()
 
 /obj/item/ai_module/core/full/asimovpp
