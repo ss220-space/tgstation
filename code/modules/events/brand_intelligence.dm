@@ -13,13 +13,13 @@
 	var/list/obj/machinery/vending/infectedMachines = list()
 	var/obj/machinery/vending/originMachine
 	var/list/rampant_speeches = list(
-		"Try our aggressive new marketing strategies!", \
-		"You should buy products to feed your lifestyle obsession!", \
-		"Consume!", \
-		"Your money can buy happiness!", \
-		"Engage direct marketing!", \
-		"Advertising is legalized lying! But don't let that put you off our great deals!", \
-		"You don't want to buy anything? Yeah, well, I didn't want to buy your mom either.")
+		"Попробуйте наши новые агрессивные маркетинговые стратегии!", \
+		"Вы должны покупать продукты, чтобы питать свою одержимость к образу жизни!", \
+		"Потребляйте!", \
+		"Ваши деньги могут купить счастье!", \
+		"Задействуйте прямой маркетинг!", \
+		"Реклама - это узаконенная ложь! Но пусть это не оттолкнет вас от наших выгодных предложений!", \
+		"Ты не хочешь ничего покупать? Ладно, твою мать я тоже не хотел покупать.")
 
 
 /datum/round_event/brand_intelligence/announce(fake)
@@ -29,7 +29,7 @@
 		source = initial(example.name)
 	else if(originMachine)
 		source = originMachine.name
-	priority_announce("Rampant brand intelligence has been detected aboard [station_name()]. Please stand by. The origin is believed to be \a [source].", "Machine Learning Alert")
+	priority_announce("Неконтролируеммый интелект торговой марки был обнаружен на борту [station_name()]. Пожалуйста, будьте начеку. Предполагается, что источником является \a [source].", "Предупреждение о машинном обучении")
 
 /datum/round_event/brand_intelligence/start()
 	for(var/obj/machinery/vending/V in GLOB.machines)
@@ -50,8 +50,8 @@
 		for(var/obj/machinery/vending/saved in infectedMachines)
 			saved.shoot_inventory = 0
 		if(originMachine)
-			originMachine.speak("I am... vanquished. My people will remem...ber...meeee.")
-			originMachine.visible_message(span_notice("[originMachine] beeps and seems lifeless."))
+			originMachine.speak("Я... побежден. Мой народ запо... мнит... меняяя")
+			originMachine.visible_message(span_notice("[originMachine] пищит и кажется безжизненным."))
 		kill()
 		return
 	vendingMachines = remove_nulls_from_list(vendingMachines)

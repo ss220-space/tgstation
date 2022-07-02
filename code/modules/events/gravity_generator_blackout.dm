@@ -18,7 +18,7 @@
 	announceChance = 33
 
 /datum/round_event/gravity_generator_blackout/announce(fake)
-	priority_announce("Gravnospheric anomalies detected near [station_name()]. Manual reset of generators is required.", "Anomaly Alert", ANNOUNCER_GRANOMALIES)
+	priority_announce("Гравиносферные аномалии обнаружены вблизи [station_name()]. Требуется ручная перезагрузка генераторов.", "Оповещение об аномалии", ANNOUNCER_GRANOMALIES)
 
 /datum/round_event/gravity_generator_blackout/start()
 	for(var/obj/machinery/gravity_generator/main/the_generator in GLOB.machines)

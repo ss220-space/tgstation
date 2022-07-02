@@ -26,19 +26,19 @@ GLOBAL_LIST_INIT(high_priority_sentience, typecacheof(list(
 	minimum_required = 1
 	role_name = "random animal"
 	var/animals = 1
-	var/one = "one"
+	var/one = "один"
 	fakeable = TRUE
 
 /datum/round_event/ghost_role/sentience/announce(fake)
 	var/sentience_report = ""
 
-	var/data = pick("scans from our long-range sensors", "our sophisticated probabilistic models", "our omnipotence", "the communications traffic on your station", "energy emissions we detected", "\[REDACTED\]")
-	var/pets = pick("animals/bots", "bots/animals", "pets", "simple animals", "lesser lifeforms", "\[REDACTED\]")
-	var/strength = pick("human", "moderate", "lizard", "security", "command", "clown", "low", "very low", "\[REDACTED\]")
+	var/data = pick("сканирования с наших сенсоров дальнего действия", "наших сложных вероятностных моделей", "нашего всемогущества", "коммуникационного трафика на вашей станции", "обнаруженных нами выбросов энергии", "\[ОТРЕДАКТИРОВАНО\]")
+	var/pets = pick("животных/ботов", "ботов/животных", "питомцев	", "простые животных", "низших формы жизни", "\[ОТРЕДАКТИРОВАНО\]")
+	var/strength = pick("человеческий", "умеренный", "ящерский", "охранный", "командный", "клоунский", "низкий", "очень низкий", "\[ОТРЕДАКТИРОВАНО\]")
 
-	sentience_report += "Based on [data], we believe that [one] of the station's [pets] has developed [strength] level intelligence, and the ability to communicate."
+	sentience_report += "На основе [data], мы полагаем, что [one] из станционных [pets] развил [strength] уровень интеллекта и способность к общению."
 
-	priority_announce(sentience_report,"[command_name()] Medium-Priority Update")
+	priority_announce(sentience_report,"[command_name()] обновление среднего приоритета")
 
 /datum/round_event/ghost_role/sentience/spawn_role()
 	var/list/mob/dead/observer/candidates
@@ -107,6 +107,6 @@ GLOBAL_LIST_INIT(high_priority_sentience, typecacheof(list(
 	weight = 0
 
 /datum/round_event/ghost_role/sentience/all
-	one = "all"
+	one = "все"
 	animals = INFINITY // as many as there are ghosts and animals
 	// cockroach pride, station wide

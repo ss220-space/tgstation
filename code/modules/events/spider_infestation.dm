@@ -14,7 +14,7 @@
 	announceWhen = rand(announceWhen, announceWhen + 50)
 
 /datum/round_event/spider_infestation/announce(fake)
-	priority_announce("Unidentified lifesigns detected coming aboard [station_name()]. Secure any exterior access, including ducting and ventilation.", "Lifesign Alert", ANNOUNCER_ALIENS)
+	priority_announce("На борту [station_name()] обнаружены неопознанные признаки жизни. Оградите все внешние доступы, включая воздуховоды и вентиляцию.", "Оповещение: признаки жизни", ANNOUNCER_ALIENS)
 
 /datum/round_event/spider_infestation/start()
 	create_midwife_eggs(spawncount)

@@ -167,7 +167,7 @@
 /obj/structure/checkoutmachine/Destroy()
 	stop_dumping()
 	STOP_PROCESSING(SSfastprocess, src)
-	priority_announce("The credit deposit machine at [get_area(src)] has been destroyed. Station funds have stopped draining!", sender_override = "CRAB-17 Protocol")
+	priority_announce("Депозитная машина кредитов в [get_area(src)] был уничтожена. Денежные средства станции перестали утекать!", sender_override = "Протокол КРАБ-17")
 	explosion(src, light_impact_range = 1, flame_range = 2)
 	REMOVE_TRAIT(SSeconomy, TRAIT_MARKET_CRASHING, REF(src))
 	return ..()
@@ -230,12 +230,12 @@
 	bogdanoff = user
 	addtimer(CALLBACK(src, .proc/startLaunch), 100)
 	sound_to_playing_players('sound/items/dump_it.ogg', 20)
-	deadchat_broadcast("Protocol CRAB-17 has been activated. A space-coin market has been launched at the station!", turf_target = get_turf(src), message_type=DEADCHAT_ANNOUNCEMENT)
+	deadchat_broadcast("Активирован протокол КРАБ-17. На станцию запущен рынок космических монет!", turf_target = get_turf(src), message_type=DEADCHAT_ANNOUNCEMENT)
 
 /obj/effect/dumpeet_target/proc/startLaunch()
 	DF = new /obj/effect/dumpeet_fall(drop_location())
 	dump = new /obj/structure/checkoutmachine(null, bogdanoff)
-	priority_announce("The spacecoin bubble has popped! Get to the credit deposit machine at [get_area(src)] and cash out before you lose all of your funds!", sender_override = "CRAB-17 Protocol")
+	priority_announce("Пузырь космокоина лопнул! Доберитесь до депозитной машины кредитов по адресу [get_area(src)] и обналичьте деньги, пока вы не потеряли все свои средства!", sender_override = "Протокол КРАБ-17")
 	animate(DF, pixel_z = -8, time = 5, , easing = LINEAR_EASING)
 	playsound(src,  'sound/weapons/mortar_whistle.ogg', 70, TRUE, 6)
 	addtimer(CALLBACK(src, .proc/endLaunch), 5, TIMER_CLIENT_TIME) //Go onto the last step after a very short falling animation

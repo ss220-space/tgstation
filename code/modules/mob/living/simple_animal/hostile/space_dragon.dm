@@ -498,8 +498,8 @@
 		var/datum/objective/summon_carp/main_objective = locate() in S.objectives
 		if(main_objective)
 			main_objective.completed = TRUE
-	priority_announce("A large amount of lifeforms have been detected approaching [station_name()] at extreme speeds. \
-	Remaining crew are advised to evacuate as soon as possible.", "Central Command Wildlife Observations")
+	priority_announce("Обнаружено большое количество форм жизни, приближающихся к [station_name()] на огромных скоростях. \
+	Оставшимся членам экипажа рекомендуется эвакуироваться как можно скорее.", "Отдел наблюдения за дикой природой Central Command")
 	sound_to_playing_players('sound/creatures/space_dragon_roar.ogg')
 	for(var/obj/structure/carp_rift/rift in rift_list)
 		rift.carp_stored = 999999
@@ -667,7 +667,7 @@
 	if(time_charged >= max_charge)
 		charge_state = CHARGE_COMPLETED
 		var/area/A = get_area(src)
-		priority_announce("Spatial object has reached peak energy charge in [initial(A.name)], please stand-by.", "Central Command Wildlife Observations")
+		priority_announce("Пространственный объект достиг пикового заряда энергии в [initial(A.name)], пожалуйста, будьте начеку.", "Отдел наблюдения за дикой природой Central Command")
 		atom_integrity = INFINITY
 		icon_state = "carp_rift_charged"
 		set_light_color(LIGHT_COLOR_YELLOW)
@@ -687,7 +687,7 @@
 	if(charge_state < CHARGE_FINALWARNING && time_charged >= (max_charge * 0.5))
 		charge_state = CHARGE_FINALWARNING
 		var/area/A = get_area(src)
-		priority_announce("A rift is causing an unnaturally large energy flux in [initial(A.name)]. Stop it at all costs!", "Central Command Wildlife Observations", ANNOUNCER_SPANOMALIES)
+		priority_announce("Разлом вызывает неестественно большой поток энергии в  [initial(A.name)]. Остановите это любой ценой!!", "Отдел наблюдения за дикой природой Central Command", ANNOUNCER_SPANOMALIES)
 
 /**
  * Used to create carp controlled by ghosts when the option is available.

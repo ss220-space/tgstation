@@ -32,7 +32,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	announceWhen = 5
 
 /datum/round_event/immovable_rod/announce(fake)
-	priority_announce("What the fuck was that?!", "General Alert")
+	priority_announce("Что это, блядь, было?!", "Общее оповещение")
 
 /datum/round_event/immovable_rod/start()
 	var/datum/round_event_control/immovable_rod/our_controller = control
@@ -46,7 +46,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 
 /obj/effect/immovablerod
 	name = "immovable rod"
-	desc = "What the fuck is that?"
+	desc = "Что это, блять, такое?"
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "immrod"
 	throwforce = 100

@@ -17,13 +17,13 @@
 	announceWhen = 2
 
 /datum/round_event/market_crash/announce(fake)
-	var/list/poss_reasons = list("the alignment of the moon and the sun",\
-		"some risky housing market outcomes",\
-		"The B.E.P.I.S. team's untimely downfall",\
-		"speculative Terragov grants backfiring",\
-		"greatly exaggerated reports of Nanotrasen accountancy personnel committing mass suicide")
+	var/list/poss_reasons = list("выравниванием луны и солнца",\
+		"некоторым рискованным результатам на рынке жилья",\
+		"безвременным падением команды B.E.P.I.S.",\
+		"спекулятивными грантами Terragov, дающими обратный эффект",\
+		"сильно преувеличенными сообщениями о массовых самоубийствах сотрудников бухгалтерии Nanotrasen")
 	var/reason = pick(poss_reasons)
-	priority_announce("Due to [reason], prices for on-station vendors will be increased for a short period.", "Nanotrasen Accounting Division")
+	priority_announce("В связи с [reason], цены в автоматах на станции будут повышены на короткий период.", "Отдел бухгалтерии Nanotrasen")
 
 /datum/round_event/market_crash/start()
 	. = ..()
@@ -37,5 +37,5 @@
 	SSeconomy.station_target += market_dip
 	REMOVE_TRAIT(SSeconomy, TRAIT_MARKET_CRASHING, MARKET_CRASH_EVENT_TRAIT)
 	SSeconomy.price_update()
-	priority_announce("Prices for on-station vendors have now stabilized.", "Nanotrasen Accounting Division")
+	priority_announce("Цены в атоматах на станции теперь стабилизировались.", "Отдел бухгалтерии Nanotrasen")
 

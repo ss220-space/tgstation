@@ -20,7 +20,7 @@
 	var/insurance_evaluation = 0
 
 /datum/round_event/shuttle_insurance/announce(fake)
-	priority_announce("Incoming subspace communication. Secure channel opened at all communication consoles.", "Incoming Message", SSstation.announcer.get_rand_report_sound())
+	priority_announce("Входящая подпространственная связь. Защищенный канал открыт на всех коммуникационных консолях.", "Входящее сообщение", SSstation.announcer.get_rand_report_sound())
 
 /datum/round_event/shuttle_insurance/setup()
 	ship_name = pick(strings(PIRATE_NAMES_FILE, "rogue_names"))
@@ -39,12 +39,12 @@
 
 /datum/round_event/shuttle_insurance/proc/answered()
 	if(EMERGENCY_AT_LEAST_DOCKED)
-		priority_announce("You are definitely too late to purchase insurance, my friends. Our agents don't work on site.",sender_override = ship_name)
+		priority_announce("Друзья, вам определенно уже поздно приобретать страховку. Наши агенты не работают на месте.",sender_override = ship_name)
 		return
 	if(insurance_message && insurance_message.answered == 1)
 		var/datum/bank_account/station_balance = SSeconomy.get_dep_account(ACCOUNT_CAR)
 		if(!station_balance?.adjust_money(-insurance_evaluation))
-			priority_announce("You didn't send us enough money for shuttle insurance. This, in the space layman's terms, is considered scamming. We're keeping your money, scammers!",sender_override = ship_name)
+			priority_announce("Вы не прислали нам достаточно денег на страховку шатла. Это, в терминах космического обывателя, считается мошенничеством. Мы оставим ваши деньги себе, мошенники!",sender_override = ship_name)
 			return
-		priority_announce("Thank you for purchasing shuttle insurance!",sender_override = ship_name)
+		priority_announce("Благодарим вас за приобретение страховки для шатла!",sender_override = ship_name)
 		SSshuttle.shuttle_insurance = TRUE

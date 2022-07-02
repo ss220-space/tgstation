@@ -24,7 +24,7 @@
 	var/clogged = TRUE
 
 /datum/round_event/scrubber_clog/announce()
-	priority_announce("Minor biological obstruction detected in the ventilation network. Blockage is believed to be in the [get_area_name(scrubber)].", "Custodial Notification")
+	priority_announce("Обнаружено незначительное биологическое препятствие в вентиляционной сети. Предполагается, что блокировка находится в [get_area_name(scrubber)].", "Уведомление о содержании")
 
 /datum/round_event/scrubber_clog/setup()
 	scrubber = get_scrubber()
@@ -116,7 +116,7 @@
 	scrubber.clog()
 	scrubber.produce_mob(spawned_mob, living_mobs)
 
-	priority_announce("Lifesign readings have moved to a new location in the ventilation network. New Location: [prob(50) ? "Unknown.":"[get_area_name(scrubber)]."]", "Lifesign Notification")
+	priority_announce("Датчики признаков жизни переместились в новое место в вентиляционной сети. Новое местоположениеn: [prob(50) ? "Unknown.":"[get_area_name(scrubber)]."]", "Уведомление о признаках жизни")
 
 /datum/round_event_control/scrubber_clog/major
 	name = "Major Scrubber Clog"
@@ -139,7 +139,7 @@
 	return pick(mob_list)
 
 /datum/round_event/scrubber_clog/major/announce()
-	priority_announce("Major biological obstruction detected in the ventilation network. Blockage is believed to be in the [get_area_name(scrubber)] area.", "Infestation Alert")
+	priority_announce("Обнаружена крупная биологическая преграда в вентиляционной сети. Предполагается, что блокировка находится в [get_area_name(scrubber)] помещении.", "Оповещение о заражении")
 
 /datum/round_event_control/scrubber_clog/critical
 	name = "Critical Scrubber Clog"
@@ -157,7 +157,7 @@
 	spawn_delay = rand(15,25)
 
 /datum/round_event/scrubber_clog/critical/announce()
-	priority_announce("Potentially hazardous lifesigns detected in the [get_area_name(scrubber)] ventilation network.", "Security Alert")
+	priority_announce("Потенциально опасные жизненные сигналы, обнаружены в [get_area_name(scrubber)] вентиляционной системе.", "Оповещение о безопасности")
 
 /datum/round_event/scrubber_clog/critical/get_mob()
 	var/static/list/mob_list = list(
@@ -182,7 +182,7 @@
 	spawn_delay = rand(6, 25) //Wide range, for maximum utility/comedy
 
 /datum/round_event/scrubber_clog/strange/announce()
-	priority_announce("Unusual lifesign readings detected in the [get_area_name(scrubber)] ventilation network.", "Lifesign Alert", ANNOUNCER_ALIENS)
+	priority_announce("Необычные показания жизнедеятельности, обнаружены в [get_area_name(scrubber)] вентиляционной системе.", "Оповещение о признаках жизни", ANNOUNCER_ALIENS)
 
 /datum/round_event/scrubber_clog/strange/get_mob()
 	var/static/list/mob_list = list(

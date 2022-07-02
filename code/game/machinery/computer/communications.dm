@@ -282,7 +282,7 @@
 			bank_account.adjust_money(-shuttle.credit_cost)
 
 			var/purchaser_name = (obj_flags & EMAGGED) ? scramble_message_replace_chars("AUTHENTICATION FAILURE: CVE-2018-17107", 60) : usr.real_name
-			minor_announce("[purchaser_name] has purchased [shuttle.name] for [shuttle.credit_cost] credits.[shuttle.extra_desc ? " [shuttle.extra_desc]" : ""]" , "Shuttle Purchase")
+			minor_announce("[purchaser_name] купил [shuttle.name] за [shuttle.credit_cost] кредитов.[shuttle.extra_desc ? " [shuttle.extra_desc]" : ""]" , "Покупка шатла")
 
 			message_admins("[ADMIN_LOOKUPFLW(usr)] purchased [shuttle.name].")
 			log_shuttle("[key_name(usr)] has purchased [shuttle.name].")
@@ -302,7 +302,7 @@
 			nuke_request(reason, usr)
 			to_chat(usr, span_notice("Request sent."))
 			usr.log_message("has requested the nuclear codes from CentCom with reason \"[reason]\"", LOG_SAY)
-			priority_announce("The codes for the on-station nuclear self-destruct have been requested by [usr]. Confirmation or denial of this request will be sent shortly.", "Nuclear Self-Destruct Codes Requested", SSstation.announcer.get_rand_report_sound())
+			priority_announce("Коды для ядерного самоуничтожения на станции были запрошены [usr]. Подтверждение или отказ на этот запрос будет отправлено в ближайшее время.", "Запрошены коды ядерного самоуничтожения", SSstation.announcer.get_rand_report_sound())
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)
 			COOLDOWN_START(src, important_action_cooldown, IMPORTANT_ACTION_COOLDOWN)
 		if ("restoreBackupRoutingData")
@@ -435,7 +435,7 @@
 			SSjob.safe_code_request_loc = pod_location
 			SSjob.safe_code_requested = TRUE
 			SSjob.safe_code_timer_id = addtimer(CALLBACK(SSjob, /datum/controller/subsystem/job.proc/send_spare_id_safe_code, pod_location), 120 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE)
-			minor_announce("Due to staff shortages, your station has been approved for delivery of access codes to secure the Captain's Spare ID. Delivery via drop pod at [get_area(pod_location)]. ETA 120 seconds.")
+			minor_announce("В связи с нехваткой персонала, ваша станция была одобрена для доставки кодов доступа для защищенного запасного идентификатора капитана. Доставка через дроп-капсулу в [get_area(pod_location)]. Время прибытия 120 секунд.")
 
 /obj/machinery/computer/communications/proc/emergency_access_cooldown(mob/user)
 	if(toggle_uses == toggle_max_uses) //you have used up free uses already, do it one more time and start a cooldown
@@ -466,7 +466,7 @@
 	payload["sender_ckey"] = usr.ckey
 
 	send2otherserver(html_decode(station_name()), message, "Comms_Console", destination == "all" ? null : list(destination), additional_data = payload)
-	minor_announce(message, title = "Outgoing message to allied station")
+	minor_announce(message, title = "Исходящее сообщение на союзную станцию")
 	usr.log_talk(message, LOG_SAY, tag = "message to the other server")
 	message_admins("[ADMIN_LOOKUPFLW(usr)] has sent a message to the other server\[s].")
 	deadchat_broadcast(" has sent an outgoing message to the other station(s).</span>", "<span class='bold'>[usr.real_name]", usr, message_type = DEADCHAT_ANNOUNCEMENT)
@@ -808,8 +808,8 @@
 	switch(picked_option)
 		if(HACK_PIRATE) // Triggers pirates, which the crew may be able to pay off to prevent
 			priority_announce(
-				"Attention crew, it appears that someone on your station has made unexpected communication with a Syndicate ship in nearby space.",
-				"[command_name()] High-Priority Update",
+				"Внимание экипажу, похоже, что кто-то на вашей станции неожиданно вышел на связь с кораблем Синдиката в ближайшем космосе.",
+				"[command_name()] Высокоприоритетное обновление",
 			)
 
 			var/datum/round_event_control/pirates/pirate_event = locate() in SSevents.control
@@ -819,8 +819,8 @@
 
 		if(HACK_FUGITIVES) // Triggers fugitives, which can cause confusion / chaos as the crew decides which side help
 			priority_announce(
-				"Attention crew, it appears that someone on your station has made unexpected communication with an unmarked ship in nearby space.",
-				"[command_name()] High-Priority Update",
+				"Внимание экипажу, похоже, что кто-то на вашей станции неожиданно вышел на связь с неопознанным кораблем в ближайшем космосе.",
+				"[command_name()] Высокоприоритетное обновление",
 			)
 
 			var/datum/round_event_control/fugitives/fugitive_event = locate() in SSevents.control
@@ -831,7 +831,7 @@
 		if(HACK_THREAT) // Force an unfavorable situation on the crew
 			priority_announce(
 				SSmapping.config.orbit_shift_replacement,
-				"[command_name()] High-Priority Update",
+				"[command_name()] Высокоприоритетное обновление",
 			)
 
 			for(var/mob/crew_member as anything in GLOB.player_list)
@@ -859,8 +859,8 @@
 			else
 				// We spawned some sleeper agents, nice - give them a report to kickstart the paranoia
 				priority_announce(
-					"Attention crew, it appears that someone on your station has hijacked your telecommunications, broadcasting a Syndicate radio signal to your fellow employees.",
-					"[command_name()] High-Priority Update",
+					"Внимание экипажу, похоже, что кто-то на вашей станции захватил ваши телекоммуникации, передавая радиосигнал Синдиката вашим коллегам.",
+					"[command_name()] Высокоприоритетное обновление",
 				)
 
 #undef HACK_PIRATE

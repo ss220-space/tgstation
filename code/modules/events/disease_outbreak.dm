@@ -14,7 +14,7 @@
 
 
 /datum/round_event/disease_outbreak/announce(fake)
-	priority_announce("Confirmed outbreak of level 7 viral biohazard aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert", ANNOUNCER_OUTBREAK7)
+	priority_announce("Подтвержденная вспышка вирусной биологической опасности 7-го уровня на борту [station_name()]. Весь персонал должен сдерживать угрозу.", "Оповещение о биологической опасности", ANNOUNCER_OUTBREAK7)
 
 /datum/round_event/disease_outbreak/setup()
 	announceWhen = rand(15, 30)
