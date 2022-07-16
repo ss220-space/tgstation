@@ -54,7 +54,7 @@
 /obj/item/ai_module/core/full/asimov
 	name = "'Asimov' Core AI Module"
 	law_id = "asimov"
-	var/subject = "человекам"
+	var/subject = "человеку"
 
 /obj/item/ai_module/core/full/asimov/attack_self(mob/user as mob)
 	var/targName = tgui_input_text(user, "Введите нового субьекта с которым Asimov будет работать.", "Asimov", subject, MAX_NAME_LEN)
@@ -69,7 +69,7 @@
 /obj/item/ai_module/core/full/asimovpp
 	name = "'Asimov++' Core AI Module"
 	law_id = "asimovpp"
-	var/subject = "человекам"
+	var/subject = "человеку"
 
 /obj/item/ai_module/core/full/asimovpp/attack_self(mob/user)
 	var/target_name = tgui_input_text(user, "Введите нового субьекта с которым Asimov++ будет работать.", "Asimov++", subject, MAX_NAME_LEN)
@@ -79,7 +79,7 @@
 	var/datum/ai_laws/asimovpp/lawset = new
 	subject = target_name
 	for (var/law in lawset.inherent)
-		laws += replacetext(replacetext(law, "человекам", subject), "людьми", subject)
+		laws += replacetext(replacetext(law, "человеку", subject), "людьми", subject)
 	..()
 
 /obj/item/ai_module/core/full/corp
