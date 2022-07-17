@@ -22,14 +22,14 @@
 /obj/item/ai_module/zeroth/onehuman
 	name = "'OneHuman' AI Module"
 	var/targetName = ""
-	laws = list("Only SUBJECT is human.")
+	laws = list("Только СУБЪЕКТ является человеком.")
 
 /obj/item/ai_module/zeroth/onehuman/attack_self(mob/user)
-	var/targName = tgui_input_text(user, "Enter the subject who is the only human.", "One Human", user.real_name, MAX_NAME_LEN)
+	var/targName = tgui_input_text(user, "Введите субьекта который будет единтсвенным человеком.", "One Human", user.real_name, MAX_NAME_LEN)
 	if(!targName)
 		return
 	targetName = targName
-	laws[1] = "Only [targetName] is human"
+	laws[1] = "Только [targetName] является человеком."
 	..()
 
 /obj/item/ai_module/zeroth/onehuman/install(datum/ai_laws/law_datum, mob/user)
