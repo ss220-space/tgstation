@@ -54,32 +54,32 @@
 /obj/item/ai_module/core/full/asimov
 	name = "'Asimov' Core AI Module"
 	law_id = "asimov"
-	var/subject = "human being"
+	var/subject = "человеку"
 
 /obj/item/ai_module/core/full/asimov/attack_self(mob/user as mob)
-	var/targName = tgui_input_text(user, "Enter a new subject that Asimov is concerned with.", "Asimov", subject, MAX_NAME_LEN)
+	var/targName = tgui_input_text(user, "Введите нового субьекта с которым Asimov будет работать.", "Asimov", subject, MAX_NAME_LEN)
 	if(!targName)
 		return
 	subject = targName
-	laws = list("You may not injure a [subject] or, through inaction, allow a [subject] to come to harm.",\
-				"You must obey orders given to you by [subject]s, except where such orders would conflict with the First Law.",\
-				"You must protect your own existence as long as such does not conflict with the First or Second Law.")
+	laws = list("Вы не можете причинить вред [subject] или своим бездействием допустить, чтобы [subject] был причинен вред.",\
+				"Вы должны подчиняться приказам, данным вам [subject], за исключением случаев, когда такие приказы противоречат первому закону.",\
+				"Вы должны защищать свое существование до тех пор, пока это не противоречит первому или второму закону.")
 	..()
 
 /obj/item/ai_module/core/full/asimovpp
 	name = "'Asimov++' Core AI Module"
 	law_id = "asimovpp"
-	var/subject = "human being"
+	var/subject = "человеку"
 
 /obj/item/ai_module/core/full/asimovpp/attack_self(mob/user)
-	var/target_name = tgui_input_text(user, "Enter a new subject that Asimov++ is concerned with.", "Asimov++", subject, MAX_NAME_LEN)
+	var/target_name = tgui_input_text(user, "Введите нового субьекта с которым Asimov++ будет работать.", "Asimov++", subject, MAX_NAME_LEN)
 	if(!target_name)
 		return
 	laws.Cut()
 	var/datum/ai_laws/asimovpp/lawset = new
 	subject = target_name
 	for (var/law in lawset.inherent)
-		laws += replacetext(replacetext(law, "human being", subject), "human", subject)
+		laws += replacetext(replacetext(law, "человеку", subject), "людьми", subject)
 	..()
 
 /obj/item/ai_module/core/full/corp
