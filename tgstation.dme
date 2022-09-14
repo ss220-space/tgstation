@@ -4022,6 +4022,7 @@
 #include "code\modules\mob\living\simple_animal\hostile\morph.dm"
 #include "code\modules\mob\living\simple_animal\hostile\mushroom.dm"
 #include "code\modules\mob\living\simple_animal\hostile\nanotrasen.dm"
+#include "code\modules\mob\living\simple_animal\hostile\necoarc.dm"
 #include "code\modules\mob\living\simple_animal\hostile\ooze.dm"
 #include "code\modules\mob\living\simple_animal\hostile\pirate.dm"
 #include "code\modules\mob\living\simple_animal\hostile\regalrat.dm"
