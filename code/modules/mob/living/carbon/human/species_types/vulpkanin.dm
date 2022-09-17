@@ -7,10 +7,10 @@
 		TRAIT_CAN_USE_FLIGHT_POTION,
 	)
 
-	mutant_bodyparts = list("body_markings" = "None")
+	mutant_bodyparts = list("body_markings" = "None", "ears" = "Wolf")
 	external_organs = list(
-		/obj/item/organ/external/tail/vulpkanin,
-		/obj/item/organ/external/snout/vulpkanin
+		/obj/item/organ/external/tail/vulpkanin = "Straighttail",
+		/obj/item/organ/external/snout/vulpkanin = "Wolf"
 	)
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | RACE_SWAP | ERT_SPAWN | SLIME_EXTRACT
 
@@ -118,17 +118,29 @@ var/list/vulpkanin_tails_list = list(
 
 /obj/item/organ/external/tail/vulpkanin
 	name = "vulpkanin tail"
-	preference = "feature_straighttail_tail"
+	preference = "feature_vulpkanin_tail"
 	feature_key = "tail_straighttail"
 	wag_flags = WAG_ABLE
 
 /obj/item/organ/external/tail/vulpkanin/fox
-	preference = "feature_fox_tail"
 	feature_key = "tail_fox"
 
 /obj/item/organ/external/tail/vulpkanin/wolf
-	preference = "feature_wolf_tail"
 	feature_key = "tail_wolf"
+
+////
+
+/datum/sprite_accessory/tails/vulpkanin/straighttail
+	name = "Straighttail"
+	icon_state = "straighttail"
+
+/datum/sprite_accessory/tails/vulpkanin/fox
+	name = "Fox"
+	icon_state = "fox"
+
+/datum/sprite_accessory/tails/vulpkanin/wolf
+	name = "Wolf"
+	icon_state = "wolf"
 
 //Ears
 
@@ -158,6 +170,29 @@ var/list/vulpkanin_ears_list = list(
 /obj/item/organ/internal/ears/vulpkanin/sergal
 	icon_state = "m_ears_sergal_ADJ"
 
+////
+
+/datum/sprite_accessory/ears/vulpkanin/wolf
+	name = "Wolf"
+	icon_state = "bigwolf"
+
+/datum/sprite_accessory/ears/vulpkanin/dark
+	name = "Wolf Dark"
+	icon_state = "bigwolfdark"
+
+/datum/sprite_accessory/ears/vulpkanin/fox
+	name = "Fox"
+	icon_state = "fox"
+
+/datum/sprite_accessory/ears/vulpkanin/sabresune
+	name = "Sabresune"
+	icon_state = "sabresune"
+
+/datum/sprite_accessory/ears/vulpkanin/sergal
+	name = "Sergal"
+	icon_state = "sergal"
+
+
 //Snouts
 
 var/list/vulpkanin_snouts_list = list(
@@ -171,13 +206,25 @@ var/list/vulpkanin_snouts_list = list(
 	icon = 'icons/mob/species/mutant_bodyparts.dmi'
 
 	feature_key = "snout_wolf"
-	preference = "feature_wolf_snout"
+	preference = "feature_vulpkanin_snout"
 	layers = EXTERNAL_ADJACENT
 
 /obj/item/organ/external/snout/vulpkanin/fsharp
 	feature_key = "snout_fsharp"
-	preference = "feature_fsharp_snout"
 
 /obj/item/organ/external/snout/vulpkanin/flcanid
 	feature_key = "snout_flcanid"
-	preference = "feature_flcanid_snout"
+
+////
+
+/datum/sprite_accessory/snouts/vulpkanin/wolf
+	name = "Wolf"
+	icon_state = "wolf"
+
+/datum/sprite_accessory/snouts/vulpkanin/fsharp
+	name = "Fsharp"
+	icon_state = "fsharp"
+
+/datum/sprite_accessory/snouts/vulpkanin/flcanid
+	name = "Flcanid"
+	icon_state = "flcanid"
