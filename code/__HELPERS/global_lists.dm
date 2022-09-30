@@ -32,9 +32,6 @@
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_antennae, GLOB.moth_antennae_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_markings, GLOB.moth_markings_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair, GLOB.pod_hair_list)
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/vulpkanin, vulpkanin_tails_list, add_blank = TRUE)
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/snouts/vulpkanin, vulpkanin_snouts_list)
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/ears/vulpkanin, vulpkanin_ears_list)
 
 	//Species
 	for(var/spath in subtypesof(/datum/species))
