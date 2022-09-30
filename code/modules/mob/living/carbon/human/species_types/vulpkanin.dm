@@ -50,18 +50,14 @@
 
 /datum/species/vulpkanin/get_species_lore()
 	return list(
-		"Vulpkanin are a species of sharp-witted canine-pideds\
-		 residing on the planet Altam just barely within the dual-star\
-		 Vazzend system.Their politically de-centralized society and\
-		 independent natures have led them to become a species and culture both\
-		 feared and respected for their scientific breakthroughs.\
-		 Discovery, loyalty, and utilitarianism dominates their lifestyles to the\
-		 degree it can cause conflict with more rigorous and strict authorities.\
-		 They speak a guttural language known as 'Canilunzt' which has a heavy\
-		 emphasis on utilizing tail positioning and ear twitches to communicate intent.",
+		"Vulpkanin are a species of sharp-witted canine-pideds residing on the planet Altam just barely within the \
+	dual-star Vazzend system. Their politically de-centralized society and independent natures have led them to become a species and \
+	culture both feared and respected for their scientific breakthroughs. Discovery, loyalty, and utilitarianism dominates their lifestyles \
+	to the degree it can cause conflict with more rigorous and strict authorities. They speak a guttural language known as 'Canilunzt' \
+    which has a heavy emphasis on utilizing tail positioning and ear twitches to communicate intent.",
 	)
 
-//Perk
+// Perk
 
 /datum/species/vulpkanin/create_pref_unique_perks()
 	var/list/to_add = list()
@@ -74,6 +70,7 @@
 			SPECIES_PERK_DESC = "Vulpkanins can lick wounds to reduce bleeding.",
 		),
 	)
+
 	return to_add
 
 //Organs
@@ -110,7 +107,7 @@
 //Tails
 //icons/mob/species/mutant_bodyparts.dmi
 
-var/list/vulpkanin_tails_list = list(
+var/list/vulpkanin_tails_list() = list(
 	/obj/item/organ/external/tail/vulpkanin,
 	/obj/item/organ/external/tail/vulpkanin/fox,
 	/obj/item/organ/external/tail/vulpkanin/wolf
@@ -132,7 +129,7 @@ var/list/vulpkanin_tails_list = list(
 
 //Ears
 
-var/list/vulpkanin_ears_list = list(
+var/list/vulpkanin_ears_list() = list(
 	/obj/item/organ/internal/ears/vulpkanin,
 	/obj/item/organ/internal/ears/vulpkanin/dark,
 	/obj/item/organ/internal/ears/vulpkanin/fox,
@@ -160,7 +157,7 @@ var/list/vulpkanin_ears_list = list(
 
 //Snouts
 
-var/list/vulpkanin_snouts_list = list(
+var/list/vulpkanin_snouts_list() = list(
 	/obj/item/organ/external/snout/vulpkanin,
 	/obj/item/organ/external/snout/vulpkanin/fsharp,
 	/obj/item/organ/external/snout/vulpkanin/flcanid
