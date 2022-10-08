@@ -37,12 +37,36 @@
 	background_icon_state = "bg_revenant"
 	spell_requirements = NONE
 
+/mob/living/simple_animal/necromorph/slasher/proc/necromorph_evolve(/mob/living/simple_animal/necromorph/infector/new_necromorph)
+	var/owner = null
+	var/mob/living/simple_animal/necromorph/slasher/evolver = owner
+	var/mob/living/simple_animal/necromorph/infector/new_necromorph = new(owner.loc)
+	visible_message(
+		span_alertalien("[src] begins to twist and contort!"),
+		span_noticealien("You begin to evolve!"),
+	)
+	new_necromorph.setDir(dir)
+	if(numba && unique_name)
+		new_necromorph.numba = numba
+		new_necromorph.set_name()
+	if(mind)
+		mind.name = new_necromorph.real_name
+		mind.transfer_to(new_necromorph)
+	qdel(src)
+
 /datum/action/cooldown/alien/evolve_to_infector/IsAvailable()
 	. = ..()
+	if(!.)
+		return FALSE
+
+	if(!isturf(owner.loc))
+		return FALSE
 
 	return TRUE
 
 /datum/action/cooldown/alien/evolve_to_infector/Activate(atom/target)
+	var/owner = null
 	var/mob/living/simple_animal/necromorph/slasher/evolver = owner
-	var/mob/living/simple_animal/necromorph/infector/new_xeno = new(owner.loc)
+	var/mob/living/simple_animal/necromorph/infector/new_necromorph = new(owner.loc)
+	evolver.necromorph_evolve(new_necromorph)
 	return TRUE
