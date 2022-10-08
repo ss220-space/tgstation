@@ -1,4 +1,4 @@
-/mob/living/simple_animal/hostile/necromorph/brute
+/mob/living/simple_animal/necromorph/brute
 	name = "necromorph brute"
 	icon = 'icons/necromorph/brute.dmi'
 	icon_state = "brute"
@@ -7,21 +7,24 @@
 	faction = "necromorph"
 	health = 400
 	maxHealth = 400
+	pixel_x = -16
+	base_pixel_x = -16
+	maptext_height = 64
+	maptext_width = 64
 	pressure_resistance = 200
 	melee_damage_lower = 60
 	melee_damage_upper = 60
-	var/datum/action/cooldown/mob_cooldown/charge/triple_charge/triple_charge
+	unique_name = 1
+	footstep_type = FOOTSTEP_MOB_SHOE
+	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
+	minbodytemp = 0
 
-/mob/living/simple_animal/hostile/necromorph/brute/Initialize(mapload)
+	var/datum/action/cooldown/spell/night_vision/necromorph/night_vision
+	var/datum/action/cooldown/mob_cooldown/charge/charge
+
+/mob/living/simple_animal/necromorph/brute/Initialize(mapload)
 	. = ..()
-	triple_charge = new /datum/action/cooldown/mob_cooldown/triple_charge/triple_charge()
-	triple_charge.Grant(src)
-
-/mob/living/simple_animal/hostile/necromorph/brute/Destroy()
-	QDEL_NULL(charge)
-	return ..()
-
-/mob/living/simple_animal/hostile/necromorph/brute/OpenFire()
-	if(client)
-		return
-	charge.Trigger(target = target)
+	charge = new
+	night_vision = new
+	night_vision.Grant(src)
+	charge.Grant(src)
