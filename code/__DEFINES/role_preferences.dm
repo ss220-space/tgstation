@@ -20,6 +20,7 @@
 // Midround roles
 #define ROLE_ABDUCTOR "Abductor"
 #define ROLE_ALIEN "Xenomorph"
+#define ROLE_NECROMORPH "Necromorph"
 #define ROLE_BLOB "Blob"
 #define ROLE_BLOB_INFECTION "Blob Infection"
 #define ROLE_FUGITIVE "Fugitive"
@@ -117,6 +118,7 @@ GLOBAL_LIST_INIT(special_roles, list(
 	// Midround
 	ROLE_ABDUCTOR = 0,
 	ROLE_ALIEN = 0,
+	ROLE_NECROMORPH = 0,
 	ROLE_BLOB = 0,
 	ROLE_BLOB_INFECTION = 0,
 	ROLE_FUGITIVE = 0,

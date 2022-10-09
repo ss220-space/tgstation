@@ -352,6 +352,7 @@
 			"Antagonist Positions" = list(
 				ROLE_ABDUCTOR,
 				ROLE_ALIEN,
+				ROLE_NECROMORPH,
 				ROLE_BLOB,
 				ROLE_BROTHER,
 				ROLE_CHANGELING,

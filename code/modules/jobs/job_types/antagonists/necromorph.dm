@@ -1,2 +1,2 @@
 /datum/job/necromorph
-	title = ROLE_ALIEN
+	title = ROLE_NECROMORPH

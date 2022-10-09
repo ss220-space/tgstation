@@ -10,7 +10,7 @@
 
 /datum/antagonist/necromorph
 	name = "\improper Necromorph"
-	job_rank = ROLE_ALIEN
+	job_rank = ROLE_NECROMORPH
 	show_in_antagpanel = FALSE
 	prevent_roundtype_conversion = FALSE
 	show_to_ghosts = TRUE
@@ -35,15 +35,23 @@
 /datum/antagonist/necromorph/get_preview_icon()
 	return finish_preview_icon(icon('icons/mob/nonhuman-player/alien.dmi', "alienh"))
 
-//XENO
-/mob/living/carbon/alien/mind_initialize()
+/datum/antagonist/necromorph/greet()
+	to_chat(owner.current, span_alertsyndie("You are the Necromorph."))
+	to_chat(owner.current, "Плоть. Кровь. Биомасса. Несите трупы людишек Обелиску, и тогда он даст вам силы, для захвата станции и самое главное - Эвакуационного Шаттла. Он понадобится нашему Обелиску для распространения в другие сектора!")
+	owner.announce_objectives()
+
+/datum/antagonist/necromorph/proc/forge_objectives()
+	if(necromorph_team)
+		objectives = "Захватите станцию и эвакуационный шаттл. Защищайте Обелиск любой ценой!"
+
+/mob/living/simple_animal/necromorph/mind_initialize()
 	..()
 	if(!mind.has_antag_datum(/datum/antagonist/necromorph))
 		mind.add_antag_datum(/datum/antagonist/necromorph)
 		mind.set_assigned_role(SSjob.GetJobType(/datum/job/necromorph))
-		mind.special_role = ROLE_ALIEN
+		mind.special_role = ROLE_NECROMORPH
 
-/mob/living/carbon/alien/on_wabbajacked(mob/living/new_mob)
+/mob/living/simple_animal/necromorph/on_wabbajacked(mob/living/new_mob)
 	. = ..()
 	if(!mind)
 		return
