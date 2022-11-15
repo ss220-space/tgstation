@@ -79,7 +79,7 @@
 	vary = TRUE
 
 /datum/emote/living/carbon/human/scream/get_sound(mob/living/carbon/human/user)
-	if(!istype(user) || user.silent)
+	if(!istype(user) || !user.can_speak(allow_mimes = TRUE))
 		return
 
 	return user.dna.species.get_scream_sound(user)
