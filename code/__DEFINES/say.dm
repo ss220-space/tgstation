@@ -23,6 +23,7 @@
 
 #define MODE_BINARY "binary"
 #define MODE_KEY_BINARY "b"
+#define MODE_ALTERNATIVE_KEY_BINARY "и"
 #define MODE_TOKEN_BINARY ":b"
 
 #define WHISPER_MODE "the type of whisper"
@@ -47,10 +48,12 @@
 
 #define MODE_CHANGELING "changeling"
 #define MODE_KEY_CHANGELING "g"
+#define MODE_ALTERNATIVE_KEY_CHANGELING "п"
 #define MODE_TOKEN_CHANGELING ":g"
 
 #define MODE_VOCALCORDS "cords"
 #define MODE_KEY_VOCALCORDS "x"
+#define MODE_ALTERNATIVE_KEY_VOCALCORDS "ч"
 
 #define MODE_MAFIA "mafia"
 

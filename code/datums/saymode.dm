@@ -1,5 +1,6 @@
 /datum/saymode
 	var/key
+	var/alternativekey
 	var/mode
 
 //Return FALSE if you have handled the message. Otherwise, return TRUE and saycode will continue doing saycode things.
@@ -11,6 +12,7 @@
 
 /datum/saymode/changeling
 	key = MODE_KEY_CHANGELING
+	alternativekey = MODE_ALTERNATIVE_KEY_CHANGELING
 	mode = MODE_CHANGELING
 
 /datum/saymode/changeling/handle_message(mob/living/user, message, datum/language/language)
@@ -49,6 +51,7 @@
 
 /datum/saymode/xeno
 	key = "a"
+	alternativekey = "ф"
 	mode = MODE_ALIEN
 
 /datum/saymode/xeno/handle_message(mob/living/user, message, datum/language/language)
@@ -59,6 +62,7 @@
 
 /datum/saymode/vocalcords
 	key = MODE_KEY_VOCALCORDS
+	alternativekey = MODE_ALTERNATIVE_KEY_VOCALCORDS
 	mode = MODE_VOCALCORDS
 
 /datum/saymode/vocalcords/handle_message(mob/living/user, message, datum/language/language)
@@ -73,6 +77,7 @@
 
 /datum/saymode/binary //everything that uses .b (silicons, drones)
 	key = MODE_KEY_BINARY
+	alternativekey = MODE_ALTERNATIVE_KEY_BINARY
 	mode = MODE_BINARY
 
 /datum/saymode/binary/handle_message(mob/living/user, message, datum/language/language)
