@@ -51,7 +51,7 @@
 	icon = 'code/modules/food_and_drinks/kvas/kvas_sprites.dmi'
 	icon_state = "okroshka"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/consumable/kvas = 5, /datum/reagent/consumable/nutriment/vitamin = 4)
-	tastes = list("miso" = 1)
+	tastes = list("okroshka" = 1)
 	foodtypes = VEGETABLES | MEAT
 	venue_value = FOOD_PRICE_NORMAL
 
