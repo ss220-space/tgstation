@@ -15542,6 +15542,7 @@
 /area/station/ai_monitored/turret_protected/ai)
 "bhV" = (
 /obj/machinery/light/directional/east,
+/obj/structure/fireaxecabinet/mechremoval/directional/east,
 /turf/open/floor/circuit/green,
 /area/station/science/robotics/mechbay)
 "bib" = (
