@@ -44,3 +44,8 @@ endmap
 
 map multiz_debug
 endmap
+
+map pubbystataion
+	minplayers 25
+	votable
+endmap
