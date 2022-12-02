@@ -1090,8 +1090,8 @@
 					break
 				search_id = 0
 
-		else if( search_pda && istype(A, /obj/item/modular_computer/tablet/pda) )
-			var/obj/item/modular_computer/tablet/pda/PDA = A
+		else if( search_pda && istype(A, /obj/item/modular_computer/pda) )
+			var/obj/item/modular_computer/pda/PDA = A
 			if(PDA.saved_identification == oldname)
 				PDA.saved_identification = newname
 				PDA.UpdateDisplay()
@@ -1119,7 +1119,7 @@
 /mob/proc/sync_lighting_plane_alpha()
 	if(!hud_used)
 		return
-	for(var/atom/movable/screen/plane_master/rendering_plate/lighting/light_plane in hud_used.get_true_plane_masters(RENDER_PLANE_LIGHTING))
+	for(var/atom/movable/screen/plane_master/light_plane as anything in hud_used.get_true_plane_masters(RENDER_PLANE_LIGHTING))
 		light_plane.set_alpha(lighting_alpha)
 
 ///Update the mouse pointer of the attached client in this mob
