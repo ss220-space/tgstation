@@ -21596,10 +21596,6 @@
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance)
 "bHA" = (
-/obj/machinery/embedded_controller/radio/airlock_controller/incinerator_ordmix{
-	pixel_x = 6;
-	pixel_y = -26
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
@@ -21608,6 +21604,10 @@
 	pixel_y = -24
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
+/obj/machinery/airlock_controller/incinerator_ordmix{
+	pixel_x = 6;
+	pixel_y = -26
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance)
 "bHD" = (
@@ -28476,7 +28476,7 @@
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "cpA" = (
-/obj/machinery/computer/chef_order{
+/obj/machinery/computer/order_console/cook{
 	dir = 1
 	},
 /turf/open/floor/iron/cafeteria,
@@ -33128,15 +33128,15 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
-/obj/machinery/embedded_controller/radio/airlock_controller/incinerator_atmos{
-	pixel_y = -24
-	},
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible/layer2{
 	dir = 4
 	},
 /obj/machinery/button/ignition/incinerator/atmos{
 	pixel_x = 8;
 	pixel_y = 36
+	},
+/obj/machinery/airlock_controller/incinerator_atmos{
+	pixel_y = -24
 	},
 /turf/open/floor/engine,
 /area/station/maintenance/disposal/incinerator)
@@ -38960,10 +38960,10 @@
 /obj/machinery/camera/directional/west{
 	c_tag = "Cargo Mining Dock"
 	},
-/obj/machinery/mineral/equipment_vendor,
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 4
 	},
+/obj/machinery/computer/order_console/mining,
 /turf/open/floor/iron,
 /area/station/cargo/miningdock)
 "lcU" = (
@@ -52874,6 +52874,8 @@
 /obj/effect/turf_decal/tile/purple/anticorner/contrasted{
 	dir = 4
 	},
+/obj/machinery/dna_infuser,
+/obj/item/infuser_book,
 /turf/open/floor/iron/white,
 /area/station/science/genetics)
 "xaO" = (
