@@ -8268,6 +8268,7 @@
 /area/station/commons/dorms)
 "aDk" = (
 /obj/structure/extinguisher_cabinet/directional/east,
+/obj/machinery/vending/autodrobe/all_access,
 /turf/open/floor/iron/white/corner{
 	dir = 8
 	},
@@ -12457,18 +12458,14 @@
 /turf/open/floor/iron/dark,
 /area/station/service/theater)
 "aVn" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Theatre Maintenance"
-	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/airlock/access/any/service/theatre,
-/turf/open/floor/plating,
-/area/station/maintenance/central)
+/turf/open/floor/iron/dark,
+/area/station/service/theater)
 "aVo" = (
 /obj/machinery/light/directional/west,
 /obj/structure/sign/directions/engineering{
@@ -12709,8 +12706,6 @@
 /turf/open/floor/iron,
 /area/station/service/theater)
 "aWq" = (
-/obj/machinery/light/small/directional/north,
-/obj/machinery/airalarm/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
@@ -14220,6 +14215,7 @@
 	departmentType = 2;
 	name = "Bar Requests console"
 	},
+/obj/machinery/chem_master/condimaster,
 /turf/open/floor/iron/dark,
 /area/station/service/bar)
 "bcl" = (
@@ -34197,6 +34193,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/door/airlock/maintenance{
+	name = "Theatre Maintenance"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/service/theatre,
 /turf/open/floor/plating,
 /area/station/maintenance/central)
 "gtR" = (
@@ -45949,6 +45949,12 @@
 	},
 /turf/open/floor/iron,
 /area/station/tcommsat/computer)
+"rtb" = (
+/obj/machinery/airalarm/directional/north,
+/obj/machinery/light/small/directional/north,
+/obj/machinery/vending/clothing,
+/turf/open/floor/iron/dark,
+/area/station/service/theater)
 "rtd" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
@@ -88938,7 +88944,7 @@ kVO
 aSa
 wbR
 aKT
-aKT
+rtb
 aWq
 aXn
 aYl
@@ -89452,7 +89458,7 @@ kVO
 aKT
 ovH
 aKT
-aKT
+aUf
 aUf
 aUf
 aUf
