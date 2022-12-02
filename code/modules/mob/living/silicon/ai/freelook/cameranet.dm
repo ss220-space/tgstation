@@ -67,7 +67,7 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 
 	for(var/mob/camera/ai_eye/eye as anything in moved_eyes)
 		var/list/visibleChunks = list()
-		//Get the eye's turf in case it's located in an object like a mecha
+		///Get the eye's turf in case it's located in an object like a mecha
 		var/turf/eye_turf = get_turf(eye)
 		if(eye.loc)
 			var/static_range = eye.static_visibility_range
@@ -110,14 +110,10 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 	if(c.can_use())
 		majorChunkChange(c, 1)
 
-/**
- * Used for Cyborg/mecha cameras. Since portable cameras can be in ANY chunk.
- * update_delay_buffer is passed all the way to hasChanged() from their camera updates on movement
- * to change the time between static updates.
-*/
-/datum/cameranet/proc/updatePortableCamera(obj/machinery/camera/updating_camera, update_delay_buffer)
-	if(updating_camera.can_use())
-		majorChunkChange(updating_camera, 1, update_delay_buffer)
+/// Used for Cyborg cameras. Since portable cameras can be in ANY chunk.
+/datum/cameranet/proc/updatePortableCamera(obj/machinery/camera/c)
+	if(c.can_use())
+		majorChunkChange(c, 1)
 
 /**
  * Never access this proc directly!!!!
@@ -125,10 +121,8 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
  * It will also add the atom to the cameras list if you set the choice to 1.
  * Setting the choice to 0 will remove the camera from the chunks.
  * If you want to update the chunks around an object, without adding/removing a camera, use choice 2.
- * update_delay_buffer is passed all the way to hasChanged() from portable camera updates on movement
- * to change the time between static updates.
  */
-/datum/cameranet/proc/majorChunkChange(atom/c, choice, update_delay_buffer)
+/datum/cameranet/proc/majorChunkChange(atom/c, choice)
 	if(QDELETED(c) && choice == 1)
 		CRASH("Tried to add a qdeleting camera to the net")
 
@@ -148,7 +142,7 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 					else if(choice == 1)
 						// You can't have the same camera in the list twice.
 						chunk.cameras["[T.z]"] |= c
-					chunk.hasChanged(update_delay_buffer = update_delay_buffer)
+					chunk.hasChanged()
 
 /// Will check if a mob is on a viewable turf. Returns 1 if it is, otherwise returns 0.
 /datum/cameranet/proc/checkCameraVis(mob/living/target)

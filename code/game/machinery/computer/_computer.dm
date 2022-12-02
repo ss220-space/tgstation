@@ -42,9 +42,8 @@
 	if(machine_stat & NOPOWER) // Your screen can't be on if you've got no damn charge
 		return
 
-	if(icon_screen)
-		. += mutable_appearance(icon, icon_screen)
-		. += emissive_appearance(icon, icon_screen, src)
+	. += mutable_appearance(icon, icon_screen)
+	. += emissive_appearance(icon, icon_screen, src)
 
 /obj/machinery/computer/power_change()
 	. = ..()

@@ -35,7 +35,7 @@
 /obj/item/implant/explosive/activate(cause)
 	. = ..()
 	if(!cause || !imp_in || active)
-		return FALSE
+		return 0
 	if(cause == "action_button")
 		if(popup)
 			return FALSE
@@ -43,9 +43,7 @@
 		var/response = tgui_alert(imp_in, "Are you sure you want to activate your [name]? This will cause you to explode!", "[name] Confirmation", list("Yes", "No"))
 		popup = FALSE
 		if(response != "Yes")
-			return FALSE
-	if(cause == "death" && HAS_TRAIT(imp_in, TRAIT_PREVENT_IMPLANT_AUTO_EXPLOSION))
-		return FALSE
+			return 0
 	heavy = round(heavy)
 	medium = round(medium)
 	weak = round(weak)

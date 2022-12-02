@@ -50,6 +50,8 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	var/hardware_flag = NONE
 //	Options: PROGRAM_ALL | PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET
 
+	///Whether the icon state should be bypassed entirely, used for PDAs.
+	var/bypass_state = FALSE
 	///The theme, used for the main menu and file browser apps.
 	var/device_theme = "ntos"
 
@@ -81,12 +83,10 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	// must have it's own DMI file. Icon states must be called exactly the same in all files, but may look differently
 	// If you create a program which is limited to Laptops and Consoles you don't have to add it's icon_state overlay for Tablets too, for example.
 
-	///If set, what the icon_state will be if the computer is unpowered.
-	var/icon_state_unpowered
-	///If set, what the icon_state will be if the computer is powered.
-	var/icon_state_powered
-	///Icon state overlay when the computer is turned on, but no program is loaded (programs override this).
-	var/icon_state_menu = "menu"
+	var/icon_state_unpowered = null // Icon state when the computer is turned off.
+	var/icon_state_powered = null // Icon state when the computer is turned on.
+	var/icon_state_menu = "menu" // Icon state overlay when the computer is turned on, but no program is loaded that would override the screen.
+	var/display_overlays = TRUE // If FALSE, don't draw overlays on this device at all
 
 	///The full name of the stored ID card's identity. These vars should probably be on the PDA.
 	var/saved_identification
@@ -365,10 +365,6 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 /obj/item/modular_computer/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	. = ..()
 
-	if(held_item?.tool_behaviour == TOOL_WRENCH)
-		context[SCREENTIP_CONTEXT_RMB] = "Deconstruct"
-		. = CONTEXTUAL_SCREENTIP_SET
-
 	if(computer_id_slot) // ID get removed first before pAIs
 		context[SCREENTIP_CONTEXT_ALT_LMB] = "Remove ID"
 		. = CONTEXTUAL_SCREENTIP_SET
@@ -379,18 +375,21 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	if(inserted_disk)
 		context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Remove SSD"
 		. = CONTEXTUAL_SCREENTIP_SET
+
 	return . || NONE
 
 /obj/item/modular_computer/update_icon_state()
-	if(!icon_state_powered || !icon_state_unpowered) //no valid icon, don't update.
-		return ..()
-	icon_state = enabled ? icon_state_powered : icon_state_unpowered
+	if(!bypass_state)
+		icon_state = enabled ? icon_state_powered : icon_state_unpowered
 	return ..()
 
 /obj/item/modular_computer/update_overlays()
 	. = ..()
 	var/init_icon = initial(icon)
+
 	if(!init_icon)
+		return
+	if(!display_overlays)
 		return
 
 	if(enabled)
@@ -410,10 +409,6 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		if(ishuman(loc))
 			var/mob/living/carbon/human/human_wearer = loc
 			human_wearer.sec_hud_set_ID()
-	if(inserted_pai == gone)
-		inserted_pai = null
-	if(inserted_disk == gone)
-		inserted_disk = null
 	return ..()
 
 // On-click handling. Turns on the computer if it's off and opens the GUI.
@@ -491,6 +486,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 			active_program.ntnet_status = get_ntnet_status()
 
 	handle_power(delta_time) // Handles all computer power interaction
+	//check_update_ui_need()
 
 /**
  * Displays notification text alongside a soundbeep when requested to by a program.
@@ -779,13 +775,9 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 
 	return ..()
 
-/obj/item/modular_computer/wrench_act_secondary(mob/living/user, obj/item/tool)
+/obj/item/modular_computer/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
 	tool.play_tool_sound(src, user, 20, volume=20)
-	internal_cell?.forceMove(drop_location())
-	computer_id_slot?.forceMove(drop_location())
-	inserted_disk?.forceMove(drop_location())
-	inserted_pai?.forceMove(drop_location())
 	new /obj/item/stack/sheet/iron(get_turf(loc), steel_sheet_cost)
 	user.balloon_alert(user, "disassembled")
 	relay_qdel()

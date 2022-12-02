@@ -96,19 +96,18 @@
 	if(T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
 		return // prevent intraction when T-scanner revealed
 
-	if (isidcard(I) || istype(I, /obj/item/modular_computer/pda))
+	else if (isidcard(I) || istype(I, /obj/item/modular_computer/tablet))
 		if(open)
-			if (allowed(user))
-				locked = !locked
-				to_chat(user, span_notice("Controls are now [locked ? "locked" : "unlocked"]."))
+			if (src.allowed(user))
+				src.locked = !src.locked
+				to_chat(user, span_notice("Controls are now [src.locked ? "locked" : "unlocked"]."))
 			else
 				to_chat(user, span_danger("Access denied."))
 			updateDialog()
 		else
 			to_chat(user, span_warning("You must open the cover first!"))
-		return
-
-	return ..()
+	else
+		return ..()
 
 /obj/machinery/navbeacon/attack_ai(mob/user)
 	interact(user, 1)

@@ -2,14 +2,14 @@ import { BooleanLike } from 'common/react';
 import { classes } from 'common/react';
 import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
-import { Box, Section, NumberInput, Table, Tabs, LabeledList, NoticeBox, Button, ProgressBar, Stack } from '../components';
+import { Section, NumberInput, Table, Tabs, LabeledList, NoticeBox, Button, ProgressBar, Stack } from '../components';
 
 type BiogeneratorData = {
   processing: BooleanLike;
   beaker: BooleanLike;
   reagent_color: string;
   biomass: number;
-  max_visual_biomass: number;
+  max_biomass: number;
   can_process: BooleanLike;
   beakerCurrentVolume: number;
   beakerMaxVolume: number;
@@ -39,7 +39,7 @@ export const Biogenerator = (props, context) => {
     beaker,
     reagent_color,
     biomass,
-    max_visual_biomass,
+    max_biomass,
     can_process,
     beakerCurrentVolume,
     beakerMaxVolume,
@@ -56,78 +56,71 @@ export const Biogenerator = (props, context) => {
     categories.find((category) => category.name === selectedCategory)?.items ||
     [];
   return (
-    <Window width={400} height={500}>
+    <Window width={400} height={480}>
       <Window.Content>
         <Stack vertical fill>
           <Stack.Item>
-            <Section fill>
-              <LabeledList>
+            <LabeledList>
+              <LabeledList.Item
+                label="Biomass"
+                buttons={
+                  <Button
+                    width={7}
+                    align="center"
+                    icon="cog"
+                    iconSpin={processing ? 1 : 0}
+                    content="Generate"
+                    disabled={!can_process || processing}
+                    onClick={() => act('activate')}
+                  />
+                }>
+                <ProgressBar
+                  value={biomass}
+                  minValue={0}
+                  maxValue={max_biomass}
+                  color="good">
+                  <span
+                    style={{
+                      'text-shadow': '1px 1px 0 black',
+                    }}>
+                    {`${biomass} of ${max_biomass} units`}
+                  </span>
+                </ProgressBar>
+              </LabeledList.Item>
+              {!!beaker && (
                 <LabeledList.Item
-                  label="Biomass"
+                  label="Container"
                   buttons={
                     <Button
                       width={7}
-                      lineHeight={2}
                       align="center"
-                      icon="cog"
-                      iconSpin={processing ? 1 : 0}
-                      content="Generate"
-                      disabled={!can_process || processing}
-                      onClick={() => act('activate')}
+                      icon="eject"
+                      content="Eject"
+                      onClick={() => act('eject')}
                     />
                   }>
                   <ProgressBar
-                    value={biomass}
+                    value={beakerCurrentVolume}
                     minValue={0}
-                    maxValue={max_visual_biomass}
-                    color="good">
-                    <Box
-                      lineHeight={1.9}
+                    maxValue={beakerMaxVolume}
+                    color={reagent_color}>
+                    <span
                       style={{
                         'text-shadow': '1px 1px 0 black',
                       }}>
-                      {`${parseFloat(biomass.toFixed(2))} units`}
-                    </Box>
+                      {`${beakerCurrentVolume} of ${beakerMaxVolume} units`}
+                    </span>
                   </ProgressBar>
                 </LabeledList.Item>
-                {!!beaker && (
-                  <LabeledList.Item
-                    label="Container"
-                    buttons={
-                      <Button
-                        width={7}
-                        lineHeight={2}
-                        align="center"
-                        icon="eject"
-                        content="Eject"
-                        onClick={() => act('eject')}
-                      />
-                    }>
-                    <ProgressBar
-                      value={beakerCurrentVolume}
-                      minValue={0}
-                      height={2}
-                      maxValue={beakerMaxVolume}
-                      color={reagent_color}>
-                      <Box
-                        lineHeight={1.9}
-                        style={{
-                          'text-shadow': '1px 1px 0 black',
-                        }}>
-                        {`${beakerCurrentVolume} of ${beakerMaxVolume} units`}
-                      </Box>
-                    </ProgressBar>
-                  </LabeledList.Item>
-                )}
-                {!beaker && (
-                  <LabeledList.Item label="Container">
-                    <NoticeBox m={0} height={2}>
-                      No liquid container
-                    </NoticeBox>
-                  </LabeledList.Item>
-                )}
-              </LabeledList>
-            </Section>
+              )}
+              {!beaker && (
+                <LabeledList.Item label="Container">
+                  <NoticeBox m={0} height="19px" fontSize="11px">
+                    No liquid container
+                  </NoticeBox>
+                </LabeledList.Item>
+              )}
+            </LabeledList>
           </Stack.Item>
           <Stack.Item>
             <Tabs fluid>
@@ -214,9 +207,9 @@ const ItemList = (props, context) => {
           fluid
           align="right"
           content={
-            parseFloat(
-              ((item.cost * item.amount) / props.efficiency).toFixed(2)
-            ) + ' BIO'
+            Math.ceil((item.cost * item.amount) / props.efficiency) +
+            ' ' +
+            'BIO'
           }
           disabled={item.disabled}
           onClick={() =>

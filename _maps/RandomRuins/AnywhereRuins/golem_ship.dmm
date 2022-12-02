@@ -75,7 +75,7 @@
 /turf/open/floor/mineral/titanium/purple,
 /area/ruin/powered/golem_ship)
 "n" = (
-/obj/machinery/computer/order_console/mining/golem,
+/obj/machinery/mineral/equipment_vendor/golem,
 /turf/open/floor/mineral/titanium/purple,
 /area/ruin/powered/golem_ship)
 "o" = (

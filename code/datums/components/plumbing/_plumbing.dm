@@ -307,14 +307,12 @@
 		net.add_plumber(src, dir)
 		net.add_plumber(plumbing, opposite_dir)
 
-/datum/component/plumbing/proc/hide(atom/movable/parent_obj, underfloor_accessibility)
+/datum/component/plumbing/proc/hide(atom/movable/parent_obj, should_hide)
 	SIGNAL_HANDLER
 
 	// If machine is unanchored, keep connector visible.
 	// This doesn't necessary map to `active`, so check parent.
 	var/atom/movable/parent_movable = parent
-
-	var/should_hide = !underfloor_accessibility
 
 	if(parent_movable.anchored || !should_hide)
 		tile_covered = should_hide

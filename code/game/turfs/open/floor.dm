@@ -18,7 +18,6 @@
 	heat_capacity = 10000
 	tiled_dirt = TRUE
 
-
 	overfloor_placed = TRUE
 
 	/// Determines the type of damage overlay that will be used for the tile
@@ -29,8 +28,6 @@
 	var/floor_tile = null
 	var/list/broken_states
 	var/list/burnt_states
-	/// Determines if you can deconstruct this with a RCD
-	var/rcd_proof = FALSE
 
 /turf/open/floor/Initialize(mapload)
 	. = ..()
@@ -333,15 +330,11 @@
 			new_airlock.update_appearance()
 			return TRUE
 		if(RCD_DECONSTRUCT)
-			if(rcd_proof)
-				balloon_alert(user, "it's too thick!")
+			var/old_turf_name = name
+			if(!ScrapeAway(flags = CHANGETURF_INHERIT_AIR))
 				return FALSE
-			else
-				var/old_turf_name = name
-				if(!ScrapeAway(flags = CHANGETURF_INHERIT_AIR))
-					return FALSE
-				to_chat(user, span_notice("You deconstruct the [old_turf_name]."))
-				return TRUE
+			to_chat(user, span_notice("You deconstruct the [old_turf_name]."))
+			return TRUE
 		if(RCD_WINDOWGRILLE)
 			if(locate(/obj/structure/grille) in src)
 				return FALSE

@@ -168,7 +168,7 @@
 				amount = 25
 
 		can_move = world.time + amount
-		try_step_multiz(direction)
+		step(src, direction)
 	return
 
 /obj/effect/dummy/chameleon/Destroy()

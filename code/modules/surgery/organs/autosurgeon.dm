@@ -160,9 +160,7 @@
 	modified this one to only insert... tongues. Horrifying."
 	starting_organ = /obj/item/organ/internal/tongue
 
+
 /obj/item/autosurgeon/syndicate/commsagent/Initialize(mapload)
 	. = ..()
 	organ_whitelist += /obj/item/organ/internal/tongue
-
-/obj/item/autosurgeon/syndicate/emaggedsurgerytoolset
-	starting_organ = /obj/item/organ/internal/cyberimp/arm/surgery/emagged

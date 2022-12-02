@@ -1085,10 +1085,6 @@
 	name = "\improper Brig Overlook"
 	icon_state = "upperbrig"
 
-/area/station/security/brig/entrance
-	name = "\improper Brig Entrance"
-	icon_state = "brigentry"
-
 /area/station/security/courtroom
 	name = "\improper Courtroom"
 	icon_state = "courtroom"
@@ -1193,13 +1189,11 @@
 	name = "\improper Security Checkpoint"
 	icon_state = "checkpoint"
 
-/area/station/security/checkpoint/escape
-	name = "\improper Departures Security Checkpoint"
-	icon_state = "checkpoint_esc"
+/area/station/security/checkpoint/auxiliary
+	icon_state = "checkpoint_aux"
 
-/area/station/security/checkpoint/arrivals
-	name = "\improper Arrivals Security Checkpoint"
-	icon_state = "checkpoint_arr"
+/area/station/security/checkpoint/escape
+	icon_state = "checkpoint_esc"
 
 /area/station/security/checkpoint/supply
 	name = "Security Post - Cargo Bay"

@@ -186,31 +186,28 @@
 			else
 				return SURGERY_STEP_FAIL
 
-/datum/surgery_step/manipulate_organs/success(mob/living/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
+/datum/surgery_step/manipulate_organs/success(mob/living/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
 	if (target_zone == BODY_ZONE_PRECISE_EYES)
 		target_zone = check_zone(target_zone)
 	if(current_type == "insert")
-		var/obj/item/apparatus
 		if(istype(tool, /obj/item/borg/apparatus/organ_storage))
-			apparatus = tool
-			tool = tool.contents[1]
-		target_organ = tool
-		user.temporarilyRemoveItemFromInventory(target_organ, TRUE)
-		if(target_organ.Insert(target))
-			if(apparatus)
-				apparatus.icon_state = initial(apparatus.icon_state)
-				apparatus.desc = initial(apparatus.desc)
-				apparatus.cut_overlays()
-			display_results(
-				user,
-				target,
-				span_notice("You insert [tool] into [target]'s [parse_zone(target_zone)]."),
-				span_notice("[user] inserts [tool] into [target]'s [parse_zone(target_zone)]!"),
-				span_notice("[user] inserts something into [target]'s [parse_zone(target_zone)]!"),
-			)
-			display_pain(target, "Your [parse_zone(target_zone)] throbs with pain as your new [tool] comes to life!")
+			target_organ = tool.contents[1]
+			tool.icon_state = initial(tool.icon_state)
+			tool.desc = initial(tool.desc)
+			tool.cut_overlays()
+			tool = target_organ
 		else
-			target_organ.forceMove(target.loc)
+			target_organ = tool
+		user.temporarilyRemoveItemFromInventory(target_organ, TRUE)
+		target_organ.Insert(target)
+		display_results(
+			user,
+			target,
+			span_notice("You insert [tool] into [target]'s [parse_zone(target_zone)]."),
+			span_notice("[user] inserts [tool] into [target]'s [parse_zone(target_zone)]!"),
+			span_notice("[user] inserts something into [target]'s [parse_zone(target_zone)]!"),
+		)
+		display_pain(target, "Your [parse_zone(target_zone)] throbs with pain as your new [tool] comes to life!")
 
 	else if(current_type == "extract")
 		if(target_organ && target_organ.owner == target)
@@ -233,7 +230,7 @@
 				span_notice("[user] can't seem to extract anything from [target]'s [parse_zone(target_zone)]!"),
 				span_notice("[user] can't seem to extract anything from [target]'s [parse_zone(target_zone)]!"),
 			)
-	return ..()
+	return FALSE
 
 ///You can never use this MUHAHAHAHAHAHAH (because its the byond version of abstract)
 /datum/surgery_step/manipulate_organs/proc/can_use_organ(mob/user, obj/item/organ/organ)

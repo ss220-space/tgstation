@@ -78,11 +78,10 @@
 		owner = null
 	return ..()
 
-// Status effect process. Handles adjusting its duration and ticks.
+// Status effect process. Handles adjusting it's duration and ticks.
 // If you're adding processed effects, put them in [proc/tick]
-// instead of extending / overriding the process() proc.
+// instead of extending / overriding ththe process() proc.
 /datum/status_effect/process(delta_time, times_fired)
-	SHOULD_NOT_OVERRIDE(TRUE)
 	if(QDELETED(owner))
 		qdel(src)
 		return

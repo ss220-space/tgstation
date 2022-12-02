@@ -22,7 +22,6 @@
 	grill_loop = new(src, FALSE)
 
 /obj/machinery/grill/Destroy()
-	grilled_item = null
 	QDEL_NULL(grill_loop)
 	return ..()
 
@@ -101,10 +100,14 @@
 		grilled_item = null
 	return ..()
 
+/obj/machinery/grill/Destroy()
+	grilled_item = null
+	. = ..()
+
 /obj/machinery/grill/handle_atom_del(atom/A)
 	if(A == grilled_item)
 		grilled_item = null
-	return ..()
+	. = ..()
 
 /obj/machinery/grill/wrench_act(mob/living/user, obj/item/I)
 	. = ..()
@@ -132,8 +135,7 @@
 
 /obj/machinery/grill/proc/finish_grill()
 	if(grilled_item)
-		if(grill_time >= 20)
-			grilled_item.AddElement(/datum/element/grilled_item, grill_time)
+		grilled_item.AddElement(/datum/element/grilled_item, grill_time)
 		UnregisterSignal(grilled_item, COMSIG_ITEM_GRILLED)
 	grill_time = 0
 	grill_loop.stop()
