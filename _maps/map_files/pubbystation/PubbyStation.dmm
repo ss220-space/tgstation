@@ -2979,12 +2979,12 @@
 	pixel_x = -6;
 	pixel_y = 6
 	},
+/obj/machinery/door/firedoor,
 /obj/machinery/door/window/left/directional/west{
 	dir = 2;
 	name = "Cargo Desk";
-	req_access = list("mail_sorting")
+	req_access = list("shipping")
 	},
-/obj/machinery/door/firedoor,
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
 "akK" = (
@@ -3028,11 +3028,12 @@
 	pixel_x = 9;
 	pixel_y = 8
 	},
-/obj/machinery/door/window/right/directional/south{
-	name = "Cargo Desk";
-	req_access = list("mail_sorting")
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/window/right/directional/west{
+	dir = 2;
+	name = "Cargo Desk";
+	req_access = list("shipping")
+	},
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
 "akQ" = (
@@ -5983,6 +5984,7 @@
 	id = "Dorm3Shutters";
 	name = "Privacy Shutters Control"
 	},
+/obj/item/pillow/random,
 /turf/open/floor/wood,
 /area/station/commons/dorms)
 "avf" = (
@@ -6931,6 +6933,7 @@
 	id = "Dorm2Shutters";
 	name = "Privacy Shutters Control"
 	},
+/obj/item/pillow/random,
 /turf/open/floor/carpet,
 /area/station/commons/dorms)
 "ayk" = (
@@ -7891,6 +7894,7 @@
 	id = "Dorm1Shutters";
 	name = "Privacy Shutters Control"
 	},
+/obj/item/pillow/random,
 /turf/open/floor/iron/grimy,
 /area/station/commons/dorms)
 "aBN" = (
@@ -10157,15 +10161,7 @@
 /turf/open/floor/plating,
 /area/station/cargo/lobby)
 "aLf" = (
-/obj/structure/disposalpipe/segment,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/turf/open/floor/iron,
+/turf/open/space/basic,
 /area/station/cargo/office)
 "aLk" = (
 /obj/structure/disposalpipe/segment,
@@ -14037,7 +14033,7 @@
 	},
 /obj/machinery/door/window/left/directional/west{
 	name = "Trash Chute";
-	req_access = list("mail_sorting")
+	req_access = list("shipping")
 	},
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
@@ -29241,7 +29237,7 @@
 	},
 /obj/machinery/door/window/left/directional/west{
 	name = "Deliveries";
-	req_access = list("mail_sorting")
+	req_access = list("shipping")
 	},
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
@@ -43415,6 +43411,11 @@
 	},
 /obj/structure/plasticflaps,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/window/left/directional/west{
+	dir = 2;
+	name = "Crate Security Door";
+	req_access = list("shipping")
+	},
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
 "phx" = (
@@ -46238,20 +46239,6 @@
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
-"rCu" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "CargoUnload"
-	},
-/obj/machinery/door/window/left/directional/west{
-	name = "Deliveries Chute";
-	req_access = list("mail_sorting")
-	},
-/turf/open/floor/iron,
-/area/station/cargo/storage)
 "rCR" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -51601,15 +51588,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/cargo/drone_bay)
-"vZP" = (
-/obj/machinery/door/window/left/directional/west{
-	dir = 1;
-	name = "Returns";
-	pixel_y = 7;
-	req_access = list("mail_sorting")
-	},
-/turf/open/floor/iron,
-/area/station/cargo/sorting)
 "vZV" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment{
@@ -91515,7 +91493,7 @@ hpt
 aOT
 uZJ
 php
-vZP
+bat
 odh
 aZn
 bav
@@ -96400,7 +96378,7 @@ wkM
 sAD
 cCB
 cCB
-rCu
+kRa
 bbG
 aht
 aht
