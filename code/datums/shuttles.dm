@@ -452,6 +452,12 @@
 	admin_notes = "The ship is a bit chunky, so watch where you park it."
 	credit_cost = 7777
 
+/datum/map_template/shuttle/emergency/skyrat
+	suffix = "skyrat"
+	name = "Alternative"
+	description = "Alternative Emergency Shuttle"
+	credit_cost = CARGO_CRATE_VALUE * 5
+
 /datum/map_template/shuttle/emergency/shadow
 	suffix = "shadow"
 	name = "The NTSS Shadow"
