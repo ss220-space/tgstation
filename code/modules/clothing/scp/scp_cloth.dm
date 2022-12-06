@@ -1,8 +1,8 @@
 //suit//
 
 /obj/item/clothing/under/scp
-	icon = 'icon/obj/scp/scp_clothes.dmi'
-	worn_icon = 'icon/obj/scp/scp_clothes.dmi'
+	icon = 'icons/obj/scp/scp_clothes.dmi'
+	worn_icon = 'icons/obj/scp/scp_clothes.dmi'
 	can_adjust = FALSE
 
 /obj/item/clothing/under/scp/dclass
@@ -45,8 +45,8 @@ obj/item/clothing/under/scp/chaos
 
 
 /obj/item/clothing/gloves/scp
-	icon = 'icon/obj/scp/scp_clothes.dmi'
-	worn_icon = 'icon/obj/scp/scp_clothes.dmi'
+	icon = 'icons/obj/scp/scp_clothes.dmi'
+	worn_icon = 'icons/obj/scp/scp_clothes.dmi'
 
 /obj/item/clothing/gloves/scp/alpha_gloves
 	name = "Alpha gloves"
@@ -81,8 +81,8 @@ obj/item/clothing/under/scp/chaos
 //mask//
 
 /obj/item/clothing/mask/gas/scp
-	icon = 'icon/obj/scp/scp_clothes.dmi'
-	worn_icon = 'icon/obj/scp/scp_clothes.dmi'
+	icon = 'icons/obj/scp/scp_clothes.dmi'
+	worn_icon = 'icons/obj/scp/scp_clothes.dmi'
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	armor = list(MELEE = 10, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 5, BIO = 5, FIRE = 0, ACID = 5, WOUND = 0)
 
@@ -101,8 +101,8 @@ obj/item/clothing/under/scp/chaos
 //helmet//
 
 /obj/item/clothing/head/scp
-	icon = 'icon/obj/scp/scp_clothes.dmi'
-	worn_icon = 'icon/obj/scp/scp_clothes.dmi'
+	icon = 'icons/obj/scp/scp_clothes.dmi'
+	worn_icon = 'icons/obj/scp/scp_clothes.dmi'
 
 /obj/item/clothing/head/scp/mtf_beret
 	name = "MTF Lieutenant beret"
@@ -197,8 +197,8 @@ obj/item/clothing/under/scp/chaos
 //Armor//
 
 /obj/item/clothing/suit/armor/vest/scp
-	icon = 'icon/obj/scp/scp_clothes.dmi'
-	worn_icon = 'icon/obj/scp/scp_clothes.dmi'
+	icon = 'icons/obj/scp/scp_clothes.dmi'
+	worn_icon = 'icons/obj/scp/scp_clothes.dmi'
 	strip_delay = 80
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
 	cold_protection = CHEST|GROIN|LEGS|ARMS
