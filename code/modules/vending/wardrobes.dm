@@ -30,6 +30,12 @@
 		/obj/item/clothing/under/rank/security/officer/grey = 3,
 		/obj/item/clothing/under/pants/slacks = 3,
 		/obj/item/clothing/under/rank/security/officer/blueshirt = 3,
+		/obj/item/clothing/neck/cloak/swap/cape/white =3,
+		/obj/item/clothing/neck/cloak/swap/cape/blue = 3,
+		/obj/item/clothing/neck/cloak/swap/cape/black = 3,
+		/obj/item/clothing/neck/cloak/swap/cape/armplate/blue = 3,
+		/obj/item/clothing/neck/cloak/swap/cape/armplate = 3,
+		/obj/item/clothing/neck/cloak/swap/cape/armplate/black = 3,
 		)
 	premium = list(
 		/obj/item/clothing/under/rank/security/officer/formal = 3,
@@ -77,6 +83,7 @@
 		/obj/item/clothing/shoes/sneakers/blue = 4,
 		/obj/item/clothing/suit/apron/surgical = 4,
 		/obj/item/clothing/mask/surgical = 4,
+		/obj/item/clothing/neck/cloak/healer = 2,
 		)
 	refill_canister = /obj/item/vending_refill/wardrobe/medi_wardrobe
 	payment_department = ACCOUNT_MED
@@ -446,6 +453,8 @@
 	premium = list(
 		/obj/item/clothing/suit/chaplainsuit/bishoprobe = 1,
 		/obj/item/clothing/head/chaplain/bishopmitre = 1,
+		/obj/item/clothing/neck/cloak/chaplain = 1,
+		/obj/item/clothing/neck/cloak/chaplain/black = 1,
 		)
 	refill_canister = /obj/item/vending_refill/wardrobe/chap_wardrobe
 	payment_department = ACCOUNT_SRV
@@ -557,6 +566,7 @@
 		/obj/item/storage/fancy/cigarettes = 5,
 		)
 	premium = list(
+		/obj/item/clothing/neck/cloak/swap/cowboy = 1,
 		/obj/item/clothing/head/flatcap = 1,
 		)
 	refill_canister = /obj/item/vending_refill/wardrobe/det_wardrobe
