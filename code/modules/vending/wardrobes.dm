@@ -83,6 +83,8 @@
 		/obj/item/clothing/shoes/sneakers/blue = 4,
 		/obj/item/clothing/suit/apron/surgical = 4,
 		/obj/item/clothing/mask/surgical = 4,
+		)
+	premium = list(
 		/obj/item/clothing/neck/cloak/healer = 2,
 		)
 	refill_canister = /obj/item/vending_refill/wardrobe/medi_wardrobe
@@ -599,6 +601,11 @@
 		/obj/item/clothing/head/hats/centcom_cap = 3,
 		/obj/item/clothing/head/hats/centhat = 3,
 		/obj/item/clothing/head/hats/intern = 3,
+		/obj/item/clothing/neck/cloak/zulie/fleeladmiral = 3,
+		/obj/item/clothing/neck/cloak/zulie/admiral = 3,
+		/obj/item/clothing/neck/cloak/zulie = 3,
+		/obj/item/clothing/neck/cloak/zulie/nano = 3,
+
 	)
 	refill_canister = /obj/item/vending_refill/wardrobe/cent_wardrobe
 /obj/item/vending_refill/wardrobe/cent_wardrobe
