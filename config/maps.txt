@@ -44,6 +44,10 @@ map northstar
 	votable
 endmap
 
+map pubbystation
+	minplayers 25
+	votable
+endmap
 
 map runtimestation
 endmap
