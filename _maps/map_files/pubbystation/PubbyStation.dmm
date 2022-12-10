@@ -44590,6 +44590,7 @@
 /obj/structure/table/glass,
 /obj/item/stack/medical/gauze,
 /obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/machinery/firealarm/directional/east,
 /turf/open/floor/iron,
 /area/station/medical/treatment_center)
 "qih" = (
@@ -50995,6 +50996,7 @@
 "vyL" = (
 /obj/machinery/stasis,
 /obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/machinery/defibrillator_mount/directional/east,
 /turf/open/floor/iron,
 /area/station/medical/treatment_center)
 "vzg" = (
@@ -51600,8 +51602,8 @@
 /obj/machinery/stasis{
 	dir = 1
 	},
-/obj/machinery/firealarm/directional/west,
 /obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/machinery/defibrillator_mount/directional/west,
 /turf/open/floor/iron,
 /area/station/medical/treatment_center)
 "vZJ" = (
@@ -52876,6 +52878,7 @@
 	dir = 4
 	},
 /obj/machinery/dna_infuser,
+/obj/item/infuser_book,
 /turf/open/floor/iron/white,
 /area/station/science/genetics)
 "xaO" = (
