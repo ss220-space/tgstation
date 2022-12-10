@@ -106,3 +106,118 @@
 
 /obj/item/clothing/neck/cloak/skill_reward/playing/check_wearable(mob/user)
 	return user.client?.is_veteran()
+
+
+// Cloak SS220 //
+
+/obj/item/clothing/neck/cloak/chaplain
+	name = "bishop's cloak"
+	desc = "Become the space pope."
+	icon_state = "bishopcloak"
+
+/obj/item/clothing/neck/cloak/chaplain/black
+	name = "black bishop's cloak"
+	icon_state = "blackbishopcloak"
+
+/obj/item/clothing/neck/cloak/warden
+	name = "warden's cloak"
+	desc = "My goal is to secure, contain, protect."
+	icon_state = "hoscloak_blue"
+
+/obj/item/clothing/neck/cloak/healer
+	name = "healer's cloak"
+	desc = "Does anyone here want modern medicine?"
+	icon_state = "healercloak"
+
+/obj/item/clothing/neck/cloak/zulie
+	name = "zulie's cloak"
+	desc = "Strange cloak. Who will wear it?"
+	icon_state = "zuliecloak"
+
+/obj/item/clothing/neck/cloak/zulie/nano
+	name = "zulie-nano's cloak"
+	desc = "LEGENDERY CLOAK. verified NT"
+	icon_state = "zuliecloak_t"
+
+/obj/item/clothing/neck/cloak/zulie/admiral
+	name = "admiral's cloak"
+	desc = "This cloak was only mentioned in legends."
+	icon_state = "cape_admiral"
+
+/obj/item/clothing/neck/cloak/zulie/fleeladmiral
+	name = "fleet admiral's cloak"
+	desc = "This cloak was only mentioned in legends."
+	icon_state = "cape_fleet_admiral"
+
+/obj/item/clothing/neck/cloak/admin
+	name = "Shitspawn cloak"
+	desc = "This cloak has some purple hair on it."
+	icon_state = "admincloak"
+
+
+//swap cloak's//
+
+/obj/item/clothing/neck/cloak/swap/
+var/swapped = FALSE
+
+/obj/item/clothing/neck/cloak/swap/cape/AltClick(mob/user)
+	. = ..()
+	swapped = !swapped
+	to_chat(user, span_notice("You swap which arm [src] will lay over."))
+	update_appearance()
+
+/obj/item/clothing/neck/cloak/swap/cape/update_appearance(updates)
+	. = ..()
+	if(swapped)
+		worn_icon_state = icon_state
+	else
+		worn_icon_state = "[icon_state]_left"
+
+/obj/item/clothing/neck/cloak/swap/cape/black
+	name = "Black cape"
+	desc = "Regular shoulder cape."
+	icon_state = "cape_black"
+
+/obj/item/clothing/neck/cloak/swap/cape/white
+	name = "White cape"
+	desc = "Regular shoulder cape."
+	icon_state = "cape_white"
+
+/obj/item/clothing/neck/cloak/swap/cape/blue
+	name = "Blue cape"
+	desc = "Regular shoulder cape."
+	icon_state = "cape_blue"
+
+/obj/item/clothing/neck/cloak/swap/cape/armplate
+	name = "Armplate"
+	desc = "Provides no protection."
+	icon_state = "armplate"
+
+/obj/item/clothing/neck/cloak/swap/cape/armplate/black
+	name = "Black armplate"
+	desc = "Provides no protection."
+	icon_state = "armplate_black"
+
+/obj/item/clothing/neck/cloak/swap/cape/armplate/blue
+	name = "Blue armplate"
+	desc = "Provides no protection."
+	icon_state = "armplate_blue"
+
+// detective cowboy beep //
+/obj/item/clothing/neck/cloak/swap/cowboy
+	name = "Cowboy poncho"
+	desc = "Japanese neo-noir style poncho"
+	icon_state = "cowboy_poncho"
+
+/obj/item/clothing/neck/cloak/swap/cowboy/AltClick(mob/user)
+	. = ..()
+	swapped = !swapped
+	to_chat(user, span_notice("[src] has been transformed."))
+	update_appearance()
+
+/obj/item/clothing/neck/cloak/swap/cowboy/update_appearance(updates)
+	. = ..()
+	if(swapped)
+		worn_icon_state = icon_state
+	else
+		worn_icon_state = "[icon_state]_t"
