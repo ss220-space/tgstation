@@ -4018,7 +4018,7 @@
 /area/station/security/brig)
 "aop" = (
 /obj/structure/bed/dogbed/mcgriff,
-/mob/living/simple_animal/pet/dog/pug/mcgriff,
+/mob/living/basic/pet/dog/pug/mcgriff,
 /obj/machinery/requests_console/directional/west{
 	department = "Security";
 	departmentType = 5;
@@ -7860,7 +7860,7 @@
 /area/station/command/heads_quarters/hop)
 "aBF" = (
 /obj/structure/bed/dogbed/ian,
-/mob/living/simple_animal/pet/dog/corgi/ian,
+/mob/living/basic/pet/dog/corgi/ian,
 /obj/machinery/status_display/evac/directional/north,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/hop)
@@ -31176,7 +31176,7 @@
 /area/station/service/library/lounge)
 "dES" = (
 /obj/structure/flora/grass/jungle,
-/mob/living/simple_animal/pet/dog/corgi,
+/mob/living/basic/pet/dog/corgi,
 /turf/open/floor/grass,
 /area/station/medical/psychology)
 "dFe" = (
@@ -34042,7 +34042,7 @@
 "gkS" = (
 /obj/structure/flora/grass/jungle/b,
 /obj/structure/flora/bush/flowers_pp/style_random,
-/mob/living/simple_animal/pet/dog/corgi/puppy,
+/mob/living/basic/pet/dog/corgi/puppy,
 /turf/open/floor/grass,
 /area/station/medical/psychology)
 "gkX" = (
@@ -34164,7 +34164,7 @@
 /area/station/engineering/supermatter/room)
 "gsP" = (
 /obj/structure/flora/bush/lavendergrass/style_random,
-/mob/living/simple_animal/pet/dog/corgi,
+/mob/living/basic/pet/dog/corgi,
 /turf/open/floor/grass,
 /area/station/medical/psychology)
 "gta" = (
@@ -43310,7 +43310,7 @@
 /area/station/security/range)
 "pds" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
-/mob/living/simple_animal/pet/dog/corgi/puppy,
+/mob/living/basic/pet/dog/corgi/puppy,
 /turf/open/floor/grass,
 /area/station/medical/psychology)
 "pdv" = (
