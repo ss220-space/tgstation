@@ -101,8 +101,8 @@
 	var/static/regex/lizard_hiSS2 = new("С+", "g")
 	var/static/regex/lizard_hiss3 = new("ш+", "g")
 	var/static/regex/lizard_hiSS3 = new("Ш+", "g")
-	var/static/regex/lizard_shch = new(@"(\w|[А-я])щ", "g")
-	var/static/regex/lizard_SHCH = new(@"(\w|[А-я])Щ", "g")
+	var/static/regex/lizard_shch = new(@"(\w|[А-Яа-яёЁ])щ", "g")
+	var/static/regex/lizard_SHCH = new(@"(\w|[А-Яа-яёЁ])щ", "g")
 	var/message = speech_args[SPEECH_MESSAGE]
 	if(message[1] != "*")
 		message = lizard_hiss.Replace(message, "sss")
