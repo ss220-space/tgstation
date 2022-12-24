@@ -89,6 +89,7 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/message_pda, /*send a message to somebody on PDA*/
 	/client/proc/fax_panel, /*send a paper to fax*/
 	/datum/admins/proc/trophy_manager,
+	/client/proc/force_load_lazy_template,
 	)
 GLOBAL_LIST_INIT(admin_verbs_ban, list(/client/proc/unban_panel, /client/proc/ban_panel, /client/proc/stickybanpanel))
 GLOBAL_PROTECT(admin_verbs_ban)
@@ -119,6 +120,8 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/admin_away,
 	/client/proc/add_mob_ability,
 	/client/proc/remove_mob_ability,
+	/client/proc/command_report_footnote,
+	/client/proc/delay_command_report,
 	/datum/admins/proc/station_traits_panel,
 	))
 GLOBAL_PROTECT(admin_verbs_fun)
@@ -978,3 +981,36 @@ GLOBAL_PROTECT(admin_verbs_poll)
 	var/datum/browser/popup = new(mob, "spellreqs", "Spell Requirements", 600, 400)
 	popup.set_content(page_contents)
 	popup.open()
+
+/client/proc/force_load_lazy_template()
+	set name = "Load/Jump Lazy Template"
+	set category = "Admin.Events"
+	if(!check_rights(R_ADMIN))
+		return
+
+	var/list/choices = LAZY_TEMPLATE_KEY_LIST_ALL()
+	var/choice = tgui_input_list(usr, "Key?", "Lazy Loader", choices)
+	if(!choice)
+		return
+
+	choice = choices[choice]
+	if(!choice)
+		to_chat(usr, span_warning("No template with that key found, report this!"))
+		return
+
+	var/already_loaded = LAZYACCESS(SSmapping.loaded_lazy_templates, choice)
+	var/force_load = FALSE
+	if(already_loaded && (tgui_alert(usr, "Template already loaded.", "", list("Jump", "Load Again")) == "Load Again"))
+		force_load = TRUE
+
+	var/datum/turf_reservation/reservation = SSmapping.lazy_load_template(choice, force = force_load)
+	if(!reservation)
+		to_chat(usr, span_boldwarning("Failed to load template!"))
+		return
+
+	if(!isobserver(usr))
+		admin_ghost()
+	usr.forceMove(coords2turf(reservation.bottom_left_coords))
+
+	message_admins("[key_name_admin(usr)] has loaded lazy template '[choice]'")
+	to_chat(usr, span_boldnicegreen("Template loaded, you have been moved to the bottom left of the reservation."))

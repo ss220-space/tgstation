@@ -47,6 +47,8 @@ SUBSYSTEM_DEF(mapping)
 	var/list/plane_offset_blacklist
 	/// List of render targets that do not allow for offsetting
 	var/list/render_offset_blacklist
+	/// List of plane masters that are of critical priority
+	var/list/critical_planes
 	/// The largest plane offset we've generated so far
 	var/max_plane_offset = 0
 
@@ -84,6 +86,9 @@ SUBSYSTEM_DEF(mapping)
 	/// list of traits and their associated z leves
 	var/list/z_trait_levels = list()
 
+	/// list of lazy templates that have been loaded
+	var/list/loaded_lazy_templates
+
 /datum/controller/subsystem/mapping/PreInit()
 	..()
 #ifdef FORCE_MAP
@@ -110,7 +115,10 @@ SUBSYSTEM_DEF(mapping)
 	true_to_offset_planes["[FLOAT_PLANE]"] = list(FLOAT_PLANE)
 	plane_to_offset["[FLOAT_PLANE]"] = 0
 	plane_offset_blacklist = list()
+	// You aren't allowed to offset a floatplane that'll just fuck it all up
+	plane_offset_blacklist["[FLOAT_PLANE]"] = TRUE
 	render_offset_blacklist = list()
+	critical_planes = list()
 	create_plane_offsets(0, 0)
 	initialize_biomes()
 	loadWorld()
@@ -330,6 +338,7 @@ Used by the AI doomsday and the self-destruct nuke.
 
 	z_list = SSmapping.z_list
 	multiz_levels = SSmapping.multiz_levels
+	loaded_lazy_templates = SSmapping.loaded_lazy_templates
 
 #define INIT_ANNOUNCE(X) to_chat(world, span_boldannounce("[X]")); log_world(X)
 /datum/controller/subsystem/mapping/proc/LoadGroup(list/errorList, name, path, files, list/traits, list/default_traits, silent = FALSE)
@@ -794,6 +803,9 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 
 	generate_offset_lists(old_max + 1, max_plane_offset)
 	SEND_SIGNAL(src, COMSIG_PLANE_OFFSET_INCREASE, old_max, max_plane_offset)
+	// Sanity check
+	if(max_plane_offset > MAX_EXPECTED_Z_DEPTH)
+		stack_trace("We've loaded a map deeper then the max expected z depth. Preferences won't cover visually disabling all of it!")
 
 /// Takes an offset to generate misc lists to, and a base to start from
 /// Use this to react globally to maintain parity with plane offsets
@@ -825,6 +837,9 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 				if(plane_offset != 0)
 					continue
 
+			if(initial(master_type.critical) & PLANE_CRITICAL_DISPLAY)
+				critical_planes[string_plane] = TRUE
+
 			plane_offset_to_true[string_plane] = plane_to_use
 			plane_to_offset[string_plane] = plane_offset
 
@@ -832,6 +847,19 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 				true_to_offset_planes[string_real] = list()
 
 			true_to_offset_planes[string_real] |= offset_plane
+
+/datum/controller/subsystem/mapping/proc/lazy_load_template(template_key, force = FALSE)
+	RETURN_TYPE(/datum/turf_reservation)
+	if(LAZYACCESS(loaded_lazy_templates, template_key)  && !force)
+		var/datum/lazy_template/template = GLOB.lazy_templates[template_key]
+		return template.reservations[1]
+	LAZYSET(loaded_lazy_templates, template_key, TRUE)
+
+	var/datum/lazy_template/target = GLOB.lazy_templates[template_key]
+	if(!target)
+		CRASH("Attempted to lazy load a template key that does not exist: '[template_key]'")
+
+	return target.lazy_load()
 
 /proc/generate_lighting_appearance_by_z(z_level)
 	if(length(GLOB.default_lighting_underlays_by_z) < z_level)
