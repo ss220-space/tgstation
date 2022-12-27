@@ -100,13 +100,12 @@
 	var/candy_cooldown = 0
 	dog_fashion = /datum/dog_fashion/head/detective
 
-/obj/item/clothing/head/fedora/det_hat_black
-	name = "black detective's fedora"
-	desc = "Old black fedora reinforced with kevlar. It smells like cigarette smoke and whiskey."
-	armor = list(MELEE = 25, BULLET = 5, LASER = 25, ENERGY = 35, BOMB = 0, BIO = 0, FIRE = 30, ACID = 50, WOUND = 5)
-	icon_state = "detective_black"
-	inhand_icon_state = "det_hat_black"
-	var/candy_cooldown = 0
+	obj_flags = UNIQUE_RENAME
+	unique_reskin = list(
+		"Default" = "detective",
+		"Black" = "detective_black",
+		"Disco" = "detective_disco"
+	)
 
 /obj/item/clothing/head/fedora/det_hat/Initialize(mapload)
 	. = ..()
