@@ -566,7 +566,8 @@
 		/obj/item/clothing/glasses/regular/kim = 1,
 		/obj/item/reagent_containers/cup/glass/flask/det = 2,
 		/obj/item/storage/fancy/cigarettes = 5,
-		)
+		/obj/item/storage/fancy/cigarettes/cigpack_candy = 5,
+	)
 	premium = list(
 		/obj/item/clothing/neck/cloak/swap/cowboy = 1,
 		/obj/item/clothing/head/flatcap = 1,
