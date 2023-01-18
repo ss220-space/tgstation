@@ -58,9 +58,9 @@
 	var/list/drone_overlays[DRONE_TOTAL_LAYERS]
 	/// Drone laws announced on spawn
 	var/laws = \
-	"1. You may not involve yourself in the matters of another being, even if such matters conflict with Law Two or Law Three, unless the other being is another Drone.\n"+\
-	"2. You may not harm any being, regardless of intent or circumstance.\n"+\
-	"3. Your goals are to actively build, maintain, repair, improve, and provide power to the best of your abilities within the facility that housed your activation." //for derelict drones so they don't go to station.
+	"1. Вы не можете вмешиваться в дела других существ, даже если эти дела будут конфликтовать с вторым и третьим законом, исключение: если другое существо - такой же дрон.\n"+\
+	"2. Вы не можете причинить вред ни одному существу, независимо от намерения или обстоятельств.\n"+\
+	"3. Вы должны заботиться о поддержке, ремонте, улучшении и о питании электроэнергией станции по мере своих возможностей в пределах обьекта на котором вы были созданы." //for derelict drones so they don't go to station.
 	/// Amount of damage sustained if hit by a heavy EMP pulse
 	var/heavy_emp_damage = 25
 	///Alarm listener datum, handes caring about alarm events and such
