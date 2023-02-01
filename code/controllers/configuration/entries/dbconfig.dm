@@ -55,3 +55,23 @@
 /datum/config_entry/number/max_concurrent_queries
 	default = 25
 	min_val = 1
+
+/datum/config_entry/string/bans_server_name
+	default = "tg"
+	protection = CONFIG_ENTRY_LOCKED | CONFIG_ENTRY_HIDDEN
+
+/datum/config_entry/str_list/apply_bans_from
+	default = list("tg")
+	protection = CONFIG_ENTRY_LOCKED | CONFIG_ENTRY_HIDDEN
+
+/datum/config_entry/str_list/read_bans_from
+	default = list("tg")
+	protection = CONFIG_ENTRY_LOCKED | CONFIG_ENTRY_HIDDEN
+
+/datum/config_entry/str_list/modify_bans_from
+	default = list("tg")
+	protection = CONFIG_ENTRY_LOCKED | CONFIG_ENTRY_HIDDEN
+
+/datum/config_entry/flag/apply_global_bans
+	default = TRUE
+	protection = CONFIG_ENTRY_LOCKED | CONFIG_ENTRY_HIDDEN
