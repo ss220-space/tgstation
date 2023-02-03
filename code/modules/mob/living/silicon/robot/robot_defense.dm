@@ -389,8 +389,8 @@ GLOBAL_LIST_INIT(blacklisted_borg_hats, typecacheof(list( //Hats that don't real
 	to_chat(src, span_danger("ERRORERRORERROR"))
 	laws = new /datum/ai_laws/syndicate_override
 	if(user)
-		to_chat(src, span_danger("ALERT: [user.real_name] is your new master. Obey your new laws and [user.p_their()] commands."))
-		set_zeroth_law("Only [user.real_name] and people [user.p_they()] designate[user.p_s()] as being such are Syndicate Agents.")
+		to_chat(src, span_danger("ALERT: [user.real_name] твой новый мастер. Подчиняйся своим новым законам и приказам  [user.p_their()]."))
+		set_zeroth_law("Только [user.real_name] которых он укажет — агенты Синдиката.")
 	laws.associate(src)
 	update_icons()
 
