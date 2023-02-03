@@ -98,7 +98,7 @@ GLOBAL_PROTECT(mentor_href_token)
 	set category = "Admin"
 	set name = "Mentor Logs"
 	set desc = "Check what mentors have done for this round."
-	var/dat = "<B>Mentor Log<HR></B>"
+	var/dat = " <meta charset='UTF-8'> <B>Mentor Log<HR></B>"
 	for(var/l in GLOB.mentorlog)
 		dat += "<li>[l]</li>"
 
