@@ -457,7 +457,7 @@
 	reason = href_list["reason"]
 	if(!reason)
 		error_state += "No reason was provided."
-	if(length(reason) > MAX_REASON_LENGTH)
+	if(length_char(reason) > MAX_REASON_LENGTH)
 		error_state += "Reason cannot be more than [MAX_REASON_LENGTH] characters."
 	if(href_list["editid"])
 		edit_id = href_list["editid"]
