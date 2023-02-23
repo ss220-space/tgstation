@@ -27,7 +27,7 @@
 
 /datum/round_event/ion_storm/announce(fake)
 	if(prob(announce_chance) || fake)
-		priority_announce("Ионный шторм обнаружен рядом со станцией. Пожалуйста, проверьте все оборудование, управляемое ИИ, на наличие ошибок.", "Anomaly Alert", ANNOUNCER_IONSTORM)
+		priority_announce("Ion storm detected near the station. Please check all AI-controlled equipment for errors.", "Anomaly Alert", ANNOUNCER_IONSTORM)
 
 
 /datum/round_event/ion_storm/start()

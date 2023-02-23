@@ -35,7 +35,7 @@
 	end_when = rand(TRAM_MALFUNCTION_TIME_LOWER, TRAM_MALFUNCTION_TIME_UPPER)
 
 /datum/round_event/tram_malfunction/announce()
-	priority_announce("Наша автоматизированная система управления потеряла связь с бортовым компьютером трамвая. Пожалуйста, будьте особенно осторожны, пока мы диагностируем и устраняем проблему. В это время сигналы и экстренное торможение могут быть недоступны.", "CentCom Engineering Division")
+	priority_announce("Our automated control system has lost contact with the tram's on board computer. Please take extra care while we diagnose and resolve the issue. Signals and emergency braking may not be available during this time.", "CentCom Engineering Division")
 
 /datum/round_event/tram_malfunction/start()
 	for(var/obj/machinery/crossing_signal/signal as anything in GLOB.tram_signals)
@@ -58,7 +58,7 @@
 	for(var/obj/structure/industrial_lift/tram as anything in GLOB.lifts)
 		tram.collision_lethality = original_lethality
 
-	priority_announce("Мы успешно перезагрузили программное обеспечение трамвая, нормальная работа возобновляется. Приносим извинения за возможные неудобства. Мы надеемся, что вы хорошо проведете остаток смены.", "CentCom Engineering Division")
+	priority_announce("We've successfully reset the software of the tram, normal operations are now resuming. Sorry for any inconvienence this may have caused. We hope you have a good rest of your shift.", "CentCom Engineering Division")
 
 #undef TRAM_MALFUNCTION_TIME_UPPER
 #undef TRAM_MALFUNCTION_TIME_LOWER

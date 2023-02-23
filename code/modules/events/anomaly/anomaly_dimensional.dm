@@ -23,7 +23,7 @@
 	new_anomaly.prepare_area(new_theme_path = anomaly_theme)
 
 /datum/round_event/anomaly/anomaly_dimensional/announce(fake)
-	priority_announce("Локализована межпространственная аномалия на сканерах дальнего действия. Ожидаемое местоположение: [impact_area.name].", "Anomaly Alert")
+	priority_announce("Localized dimensional instability detected on long range scanners. Expected location: [impact_area.name].", "Anomaly Alert")
 
 /datum/event_admin_setup/listed_options/anomaly_dimensional
 	input_text = "Select a dimensional anomaly theme?"
