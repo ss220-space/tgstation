@@ -205,7 +205,7 @@
 	spawn_delay = rand(6, 25) //Wide range, for maximum utility/comedy
 
 /datum/round_event/scrubber_clog/strange/announce()
-	priority_announce("Uнеобычные показания жизнедеятельности, обнаруженные в вентеляционной сети. Предполагается, что препятствие находится в [get_area_name(scrubber)].", "Lifesign Alert", ANNOUNCER_ALIENS)
+	priority_announce("Необычные показания жизнедеятельности, обнаруженные в вентеляционной сети. Предполагается, что препятствие находится в [get_area_name(scrubber)].", "Lifesign Alert", ANNOUNCER_ALIENS)
 
 /datum/round_event/scrubber_clog/strange/get_mob()
 	var/static/list/mob_list = list(

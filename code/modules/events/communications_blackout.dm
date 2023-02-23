@@ -11,11 +11,11 @@
 	announce_when = 1
 
 /datum/round_event/communications_blackout/announce(fake)
-	var/alert = pick( "Ionospheric anomalies detected. Temporary telecommunication failure imminent. Please contact you*%fj00)`5vc-BZZT",
-		"Ionospheric anomalies detected. Temporary telecommunication failu*3mga;b4;'1v¬-BZZZT",
-		"Ionospheric anomalies detected. Temporary telec#MCi46:5.;@63-BZZZZT",
-		"Ionospheric anomalies dete'fZ\\kg5_0-BZZZZZT",
-		"Ionospheri:%£ MCayj^j<.3-BZZZZZZT",
+	var/alert = pick( "Обнаружены ионосферные аномалии. Временный сбой телекоммуникаций неизбежен. Пожалуйста, свяжитесь с *%fj00)`5vc-BZZT",
+		"Обнаружены ионосферные аномалии. Временные телекоммуникационные сбои*3mga;b4;'1v¬-BZZZT",
+		"Обнаружены ионосферные аномалии. Временны телек#MCi46:5.;@63-BZZZZZT",
+		"Обнаружены ионосферные ано'fZ\\kg5_0-BZZZZZT",
+		"Обнаружены ион:%£ MCayj^j<.3-BZZZZZZT",
 		"#4nd%;f4y6,>£%-BZZZZZZZT",
 	)
 
