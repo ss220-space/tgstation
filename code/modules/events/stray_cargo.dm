@@ -54,7 +54,7 @@
 	var/admin_override_contents
 
 /datum/round_event/stray_cargo/announce(fake)
-	priority_announce("Stray cargo pod detected on long-range scanners. Expected location of impact: [impact_area.name].", "Collision Alert")
+	priority_announce("Неизвестная грузовая капсула обнаружена на сканерах дальнего действия. Ожидаемое место падения: [impact_area.name].", "Collision Alert")
 
 /**
 * Tries to find a valid area, throws an error if none are found

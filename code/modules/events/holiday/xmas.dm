@@ -81,7 +81,7 @@
 	var/mob/living/carbon/human/santa //who is our santa?
 
 /datum/round_event/santa/announce(fake)
-	priority_announce("Santa is coming to town!", "Unknown Transmission")
+	priority_announce("Санта мчится к вам!", "Unknown Transmission")
 
 /datum/round_event/santa/start()
 	var/list/candidates = poll_ghost_candidates("Santa is coming to town! Do you want to be Santa?", poll_time=150)

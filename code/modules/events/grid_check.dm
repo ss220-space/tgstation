@@ -19,7 +19,7 @@
 	var/datum/round_event_control/grid_check/controller = control
 	if(!COOLDOWN_FINISHED(controller, announcement_spam_protection) && !fake)
 		return
-	priority_announce("Abnormal activity detected in [station_name()]'s powernet. As a precautionary measure, the station's power will be shut off for an indeterminate duration.", "Critical Power Failure", ANNOUNCER_POWEROFF)
+	priority_announce("Обнаружена аномальная активность в сети электропитания [station_name()] В качестве меры предосторожности питание станции будет отключено на неопределенный срок.", "Critical Power Failure", ANNOUNCER_POWEROFF)
 	if(!fake) // Only start the CD if we're real
 		COOLDOWN_START(controller, announcement_spam_protection, 30 SECONDS)
 

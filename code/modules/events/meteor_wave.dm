@@ -50,7 +50,7 @@
 			kill()
 
 /datum/round_event/meteor_wave/announce(fake)
-	priority_announce("Meteors have been detected on collision course with the station.", "Meteor Alert", ANNOUNCER_METEORS)
+	priority_announce("Обнаружены метеоры, идущие на столкновение со станцией.", "Meteor Alert", ANNOUNCER_METEORS)
 
 /datum/round_event/meteor_wave/tick()
 	if(ISMULTIPLE(activeFor, 3))
@@ -91,4 +91,4 @@
 	wave_name = "meaty"
 
 /datum/round_event/meteor_wave/meaty/announce(fake)
-	priority_announce("Meaty ores have been detected on collision course with the station.", "Oh crap, get the mop.", ANNOUNCER_METEORS)
+	priority_announce("Обнаружены мясориты, идущие на столкновение со станцией..", "Oh crap, get the mop.", ANNOUNCER_METEORS)
