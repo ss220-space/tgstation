@@ -67,7 +67,7 @@
 	deadchat_broadcast(" has just been[random ? " randomly" : ""] triggered!", "<b>Scrubber Overflow: [initial(forced_reagent_type.name)]</b>", message_type=DEADCHAT_ANNOUNCEMENT)
 
 /datum/round_event/scrubber_overflow/announce(fake)
-	priority_announce("Вентеляционная сеть испытывает скачок давления. Возможен некоторый выброс содержимого.", "Atmospherics alert")
+	priority_announce("The scrubbers network is experiencing a backpressure surge. Some ejection of contents may occur.", "Atmospherics alert")
 
 /datum/round_event/scrubber_overflow/setup()
 	for(var/obj/machinery/atmospherics/components/unary/vent_scrubber/temp_vent in GLOB.machines)

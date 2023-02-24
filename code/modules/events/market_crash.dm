@@ -25,7 +25,7 @@
 		"speculative Terragov grants backfiring",\
 		"greatly exaggerated reports of Nanotrasen accountancy personnel committing mass suicide")
 	var/reason = pick(poss_reasons)
-	priority_announce("Due to [reason], Цены в вендоматах на вашей станции поднимутся на короткий промежуток", "Nanotrasen Accounting Division")
+	priority_announce("Due to [reason], prices for on-station vendors will be increased for a short period.", "Nanotrasen Accounting Division")
 
 /datum/round_event/market_crash/start()
 	. = ..()
@@ -39,5 +39,5 @@
 	SSeconomy.station_target += market_dip
 	REMOVE_TRAIT(SSeconomy, TRAIT_MARKET_CRASHING, MARKET_CRASH_EVENT_TRAIT)
 	SSeconomy.price_update()
-	priority_announce("Цены в вендоматах на вашей станции стабилизировались.", "Nanotrasen Accounting Division")
+	priority_announce("Prices for on-station vendors have now stabilized.", "Nanotrasen Accounting Division")
 
