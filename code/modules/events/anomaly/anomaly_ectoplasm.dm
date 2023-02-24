@@ -39,7 +39,7 @@
 		announce_to_ghosts(newAnomaly)
 
 /datum/round_event/anomaly/anomaly_ectoplasm/announce(fake)
-	priority_announce("Локализованный выброс эктоплазмы обнаружен на сканерах дальнего действия. Предполагаемое место воздействия: [impact_area.name].", "Anomaly Alert")
+	priority_announce("Localized ectoplasmic outburst detected on long range scanners. Expected location of impact: [impact_area.name].", "Anomaly Alert")
 
 /datum/event_admin_setup/anomaly/anomaly_ectoplasm
 	///The admin-selected intensity

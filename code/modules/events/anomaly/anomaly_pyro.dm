@@ -14,4 +14,4 @@
 	anomaly_path = /obj/effect/anomaly/pyro
 
 /datum/round_event/anomaly/anomaly_pyro/announce(fake)
-	priority_announce("Локализована пирокластическая аномалия на сканерах дальнего действия. Ожидаемое местоположение: [impact_area.name].", "Anomaly Alert")
+	priority_announce("Pyroclastic anomaly detected on long range scanners. Expected location: [impact_area.name].", "Anomaly Alert")
