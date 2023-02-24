@@ -52,7 +52,7 @@
 	lover.mind.add_antag_datum(V) //These really should be teams but i can't be assed to incorporate third wheels right now
 
 /datum/round_event/valentines/announce(fake)
-	priority_announce("It's Valentine's Day! Give a valentine to that special someone!")
+	priority_announce("Сегодня День Святого Валентина! Подарите валентинку тому особенному человеку!")
 
 /obj/item/valentine
 	name = "valentine"
@@ -74,7 +74,7 @@
 			return
 		var/recipient = tgui_input_text(user, "Who is receiving this valentine?", "To:", max_length = MAX_NAME_LEN)
 		var/sender = tgui_input_text(user, "Who is sending this valentine?", "From:", max_length = MAX_NAME_LEN)
-		if(!user.can_perform_action(src))
+		if(!user.canUseTopic(src, be_close = TRUE))
 			return
 		if(recipient && sender)
 			name = "valentine - To: [recipient] From: [sender]"
