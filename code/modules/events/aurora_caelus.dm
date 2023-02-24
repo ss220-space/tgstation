@@ -20,7 +20,7 @@
 	var/aurora_progress = 0 //this cycles from 1 to 8, slowly changing colors from gentle green to gentle blue
 
 /datum/round_event/aurora_caelus/announce()
-	priority_announce("[station_name()]: A harmless cloud of ions is approaching your station, and will exhaust their energy battering the hull. Nanotrasen has approved a short break for all employees to relax and observe this very rare event. During this time, starlight will be bright but gentle, shifting between quiet green and blue colors. Any staff who would like to view these lights for themselves may proceed to the area nearest to them with viewing ports to open space. We hope you enjoy the lights.",
+	priority_announce("К станции [station_name()] приближается безвредное облако ионов, которое исчерпает свою энергию, ударив по корпусу. Центральное командование одобрило короткий перерыв для всех сотрудников, чтобы расслабиться и понаблюдать за этим очень редким событием. В это время звездный свет будет ярким, но мягким, переходящим от спокойного зеленого к голубому. Все сотрудники, которые хотели бы увидеть эти огни своими глазами, могут пройти в ближайшую к ним зону со смотровыми окнами в открытый космос. Мы надеемся, что вам понравится наблюдать за огнями.",
 	sound = 'sound/misc/notice2.ogg',
 	sender_override = "Nanotrasen Meteorology Division")
 	for(var/V in GLOB.player_list)
@@ -72,7 +72,7 @@
 		if(istype(affected_area, /area/station/service/kitchen))
 			for(var/turf/open/superturfentent in affected_area.get_contained_turfs())
 				fade_to_black(superturfentent)
-	priority_announce("The aurora caelus event is now ending. Starlight conditions will slowly return to normal. When this has concluded, please return to your workplace and continue work as normal. Have a pleasant shift, [station_name()], and thank you for watching with us.",
+	priority_announce("Событие Аврора Каэлус завершается. Состояние звездного света постепенно возвращается к нормальному. Когда это закончится, пожалуйста, вернитесь на свое рабочее место и продолжайте работу в обычном режиме. Приятной смены, [station_name()], и спасибо, что наблюдали вместе с нами.",
 	sound = 'sound/misc/notice2.ogg',
 	sender_override = "Nanotrasen Meteorology Division")
 

@@ -26,7 +26,7 @@
 	var/clogged = TRUE
 
 /datum/round_event/scrubber_clog/announce()
-	priority_announce("Minor biological obstruction detected in the ventilation network. Blockage is believed to be in the [get_area_name(scrubber)].", "Custodial Notification")
+	priority_announce("Обнаружено незначительное биологическое препятствие в вентиляционной сети. Предполагается, что препятствие находится в [get_area_name(scrubber)].", "Custodial Notification")
 
 /datum/round_event/scrubber_clog/setup()
 	scrubber = get_scrubber()
@@ -130,7 +130,7 @@
 	scrubber.produce_mob(spawned_mob, living_mobs)
 
 	announce_to_ghosts(scrubber)
-	priority_announce("Lifesign readings have moved to a new location in the ventilation network. New Location: [prob(50) ? "Unknown.":"[get_area_name(scrubber)]."]", "Lifesign Notification")
+	priority_announce("Сигнал переместился на новое место в вентеляционной сети. Новое место: [prob(50) ? "Unknown.":"[get_area_name(scrubber)]."]", "Lifesign Notification")
 
 /datum/round_event_control/scrubber_clog/major
 	name = "Scrubber Clog: Major"
@@ -156,7 +156,7 @@
 	return pick(mob_list)
 
 /datum/round_event/scrubber_clog/major/announce()
-	priority_announce("Major biological obstruction detected in the ventilation network. Blockage is believed to be in the [get_area_name(scrubber)] area.", "Infestation Alert")
+	priority_announce("Обнаружено значительное биологическое препятствие в вентиляционной сети. Предполагается, что препятствие находится в [get_area_name(scrubber)].", "Infestation Alert")
 
 /datum/round_event_control/scrubber_clog/critical
 	name = "Scrubber Clog: Critical"
@@ -177,7 +177,7 @@
 	spawn_delay = rand(15,25)
 
 /datum/round_event/scrubber_clog/critical/announce()
-	priority_announce("Potentially hazardous lifesigns detected in the [get_area_name(scrubber)] ventilation network.", "Security Alert")
+	priority_announce("Потенциально опасные признаки жизни, обнаруженные в вентиляционной сети. Предполагается, что препятствие находится в [get_area_name(scrubber)].", "Security Alert")
 
 /datum/round_event/scrubber_clog/critical/get_mob()
 	var/static/list/mob_list = list(
@@ -205,11 +205,7 @@
 	spawn_delay = rand(6, 25) //Wide range, for maximum utility/comedy
 
 /datum/round_event/scrubber_clog/strange/announce()
-<<<<<<< HEAD
 	priority_announce("Необычные показания жизнедеятельности, обнаруженные в вентеляционной сети. Предполагается, что препятствие находится в [get_area_name(scrubber)].", "Lifesign Alert", ANNOUNCER_ALIENS)
-=======
-	priority_announce("Unusual lifesign readings detected in the [get_area_name(scrubber)] ventilation network.", "Lifesign Alert", ANNOUNCER_ALIENS)
->>>>>>> parent of ffb32ee730 (russian-translations)
 
 /datum/round_event/scrubber_clog/strange/get_mob()
 	var/static/list/mob_list = list(
