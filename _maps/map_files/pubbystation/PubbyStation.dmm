@@ -3259,7 +3259,7 @@
 /turf/open/floor/iron,
 /area/station/security/office)
 "alD" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/open/floor/iron,
 /area/station/security/office)
 "alF" = (
@@ -3281,7 +3281,7 @@
 /turf/open/floor/carpet,
 /area/station/command/heads_quarters/hos)
 "alM" = (
-/obj/machinery/computer/secure_data{
+/obj/machinery/computer/records/security{
 	dir = 8
 	},
 /turf/open/floor/carpet,
@@ -3684,7 +3684,7 @@
 /turf/open/floor/iron/showroomfloor,
 /area/station/security/warden)
 "amV" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/open/floor/iron/showroomfloor,
 /area/station/security/warden)
 "amZ" = (
@@ -4994,7 +4994,7 @@
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "arQ" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/red/half/contrasted{
 	dir = 1
@@ -5812,7 +5812,7 @@
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
 "auE" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/machinery/button/flasher{
 	id = "brigentry";
 	pixel_x = 6;
@@ -8821,7 +8821,7 @@
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/hop)
 "aEO" = (
-/obj/machinery/computer/secure_data{
+/obj/machinery/computer/records/security{
 	dir = 1
 	},
 /turf/open/floor/carpet,
@@ -9171,7 +9171,7 @@
 /turf/open/floor/carpet,
 /area/station/security/detectives_office)
 "aFY" = (
-/obj/machinery/computer/secure_data{
+/obj/machinery/computer/records/security{
 	dir = 1
 	},
 /obj/machinery/camera/directional/south{
@@ -10945,7 +10945,7 @@
 /turf/open/floor/iron,
 /area/station/cargo/lobby)
 "aOS" = (
-/obj/machinery/computer/secure_data{
+/obj/machinery/computer/records/security{
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/red/filled/line{
@@ -13820,7 +13820,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "baQ" = (
-/obj/machinery/computer/secure_data{
+/obj/machinery/computer/records/security{
 	dir = 4
 	},
 /obj/machinery/button/flasher{
@@ -17588,7 +17588,7 @@
 /turf/open/floor/iron,
 /area/station/security/checkpoint/medical)
 "brm" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/red/anticorner/contrasted{
 	dir = 4
@@ -20152,7 +20152,7 @@
 /turf/open/floor/iron,
 /area/station/security/checkpoint/science)
 "bBy" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/machinery/requests_console/directional/east{
 	department = "Security";
 	departmentType = 5;
@@ -24492,7 +24492,7 @@
 /turf/open/floor/iron,
 /area/station/security/checkpoint/engineering)
 "bUk" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/effect/turf_decal/tile/red/anticorner/contrasted{
 	dir = 4
 	},
