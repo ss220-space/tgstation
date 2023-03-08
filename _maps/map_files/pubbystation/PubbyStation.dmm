@@ -2330,7 +2330,7 @@
 /area/station/maintenance/department/crew_quarters/dorms)
 "aiU" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/structure/sign/barsign,
+/obj/machinery/barsign,
 /turf/open/floor/plating,
 /area/station/service/abandoned_gambling_den)
 "aiV" = (
@@ -2938,7 +2938,7 @@
 /area/station/security/medical)
 "akD" = (
 /obj/structure/table/glass,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/item/radio/intercom/directional/north,
 /obj/effect/turf_decal/tile/red/half/contrasted{
 	dir = 1
@@ -3259,7 +3259,7 @@
 /turf/open/floor/iron,
 /area/station/security/office)
 "alD" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/open/floor/iron,
 /area/station/security/office)
 "alF" = (
@@ -3281,7 +3281,7 @@
 /turf/open/floor/carpet,
 /area/station/command/heads_quarters/hos)
 "alM" = (
-/obj/machinery/computer/secure_data{
+/obj/machinery/computer/records/security{
 	dir = 8
 	},
 /turf/open/floor/carpet,
@@ -3684,7 +3684,7 @@
 /turf/open/floor/iron/showroomfloor,
 /area/station/security/warden)
 "amV" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/open/floor/iron/showroomfloor,
 /area/station/security/warden)
 "amZ" = (
@@ -3919,7 +3919,7 @@
 /obj/machinery/keycard_auth{
 	pixel_y = -24
 	},
-/mob/living/simple_animal/hostile/retaliate/bat/sgt_araneus,
+/mob/living/basic/giant_spider/sgt_araneus,
 /obj/effect/turf_decal/tile/red/half/contrasted{
 	dir = 1
 	},
@@ -4920,7 +4920,7 @@
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "arI" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 1
@@ -4994,7 +4994,7 @@
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "arQ" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/red/half/contrasted{
 	dir = 1
@@ -5812,7 +5812,7 @@
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
 "auE" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/machinery/button/flasher{
 	id = "brigentry";
 	pixel_x = 6;
@@ -8821,7 +8821,7 @@
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/hop)
 "aEO" = (
-/obj/machinery/computer/secure_data{
+/obj/machinery/computer/records/security{
 	dir = 1
 	},
 /turf/open/floor/carpet,
@@ -9162,7 +9162,7 @@
 /turf/open/floor/iron/grimy,
 /area/station/security/detectives_office)
 "aFX" = (
-/obj/machinery/computer/med_data{
+/obj/machinery/computer/records/medical{
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment{
@@ -9171,7 +9171,7 @@
 /turf/open/floor/carpet,
 /area/station/security/detectives_office)
 "aFY" = (
-/obj/machinery/computer/secure_data{
+/obj/machinery/computer/records/security{
 	dir = 1
 	},
 /obj/machinery/camera/directional/south{
@@ -10945,7 +10945,7 @@
 /turf/open/floor/iron,
 /area/station/cargo/lobby)
 "aOS" = (
-/obj/machinery/computer/secure_data{
+/obj/machinery/computer/records/security{
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/red/filled/line{
@@ -13820,7 +13820,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "baQ" = (
-/obj/machinery/computer/secure_data{
+/obj/machinery/computer/records/security{
 	dir = 4
 	},
 /obj/machinery/button/flasher{
@@ -14852,7 +14852,7 @@
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "bfr" = (
-/obj/structure/sign/barsign,
+/obj/machinery/barsign,
 /turf/closed/wall,
 /area/station/commons/lounge)
 "bfs" = (
@@ -16498,7 +16498,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/central)
 "bmn" = (
-/obj/machinery/computer/med_data{
+/obj/machinery/computer/records/medical{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/blue/fourcorners,
@@ -17588,7 +17588,7 @@
 /turf/open/floor/iron,
 /area/station/security/checkpoint/medical)
 "brm" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/red/anticorner/contrasted{
 	dir = 4
@@ -20152,7 +20152,7 @@
 /turf/open/floor/iron,
 /area/station/security/checkpoint/science)
 "bBy" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/machinery/requests_console/directional/east{
 	department = "Security";
 	departmentType = 5;
@@ -20898,7 +20898,7 @@
 	},
 /obj/structure/table/glass,
 /obj/item/computer_disk/medical,
-/obj/item/computer_disk/chemistry{
+/obj/item/computer_disk/medical{
 	pixel_x = 5;
 	pixel_y = 5
 	},
@@ -24492,7 +24492,7 @@
 /turf/open/floor/iron,
 /area/station/security/checkpoint/engineering)
 "bUk" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/effect/turf_decal/tile/red/anticorner/contrasted{
 	dir = 4
 	},
@@ -30356,7 +30356,7 @@
 /turf/open/floor/plating,
 /area/station/service/chapel/funeral)
 "cIe" = (
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/structure/table/glass,
 /obj/machinery/light/small/directional/north,
 /obj/machinery/airalarm/directional/north,
@@ -38666,7 +38666,7 @@
 /turf/open/floor/plating,
 /area/station/engineering/atmos/office)
 "kQy" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
@@ -43470,7 +43470,7 @@
 /area/station/cargo/lobby)
 "piR" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/med_data/laptop{
+/obj/machinery/computer/records/medical/laptop{
 	dir = 1;
 	pixel_y = 4
 	},
