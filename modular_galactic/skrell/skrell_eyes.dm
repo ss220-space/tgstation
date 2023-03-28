@@ -5,7 +5,7 @@
 #define OFFSET_X 1
 #define OFFSET_Y 2
 /obj/item/organ/internal/eyes/skrell/generate_body_overlay(mob/living/carbon/human/parent)
-	if(!istype(parent) || parent.getorgan(/obj/item/organ/internal/eyes) != src)
+	if(!istype(parent) || parent.get_organ_by_type(/obj/item/organ/internal/eyes) != src)
 		CRASH("Generating a body overlay for [src] targeting an invalid parent '[parent]'.")
 
 	var/mutable_appearance/eye_left = mutable_appearance('modular_galactic/skrell/skrell_eyes.dmi', "[eye_icon_state]_l", -BODY_LAYER)
