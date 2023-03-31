@@ -3,11 +3,11 @@
 //      code\__DEFINES\DNA.dm      //
 /////////////////////////////////////
 
-#define DNA_FEATURE_BLOCKS 16
-#define DNA_SKRELL_HAIR_BLOCK 16
-#define ORGAN_SLOT_EXTERNAL_SKRELL_HAIR "skrell_hair"
+// #define DNA_FEATURE_BLOCKS 16
+// #define DNA_SKRELL_HAIR_BLOCK 16
+// #define ORGAN_SLOT_EXTERNAL_SKRELL_HAIR "skrell_hair"
 
-#define SPECIES_SKRELL "skrell"
+// #define SPECIES_SKRELL "skrell"
 
 GLOBAL_LIST_EMPTY(skrell_hair_list)
 ////////////////////////////////////
@@ -155,3 +155,38 @@ GLOBAL_LIST_EMPTY(skrell_hair_list)
 			update_body_parts(update_limb_data = TRUE)
 		if(mutations_overlay_update)
 			update_mutations_overlay()
+
+/datum/dna/update_uf_block(blocknumber)
+	if(!blocknumber)
+		CRASH("UF block index is null")
+	if(!ishuman(holder))
+		CRASH("Non-human mobs shouldn't have DNA")
+	switch(blocknumber)
+		if(DNA_MUTANT_COLOR_BLOCK)
+			set_uni_feature_block(blocknumber, sanitize_hexcolor(features["mcolor"], include_crunch = FALSE))
+		if(DNA_ETHEREAL_COLOR_BLOCK)
+			set_uni_feature_block(blocknumber, sanitize_hexcolor(features["ethcolor"], include_crunch = FALSE))
+		if(DNA_LIZARD_MARKINGS_BLOCK)
+			set_uni_feature_block(blocknumber, construct_block(GLOB.body_markings_list.Find(features["body_markings"]), GLOB.body_markings_list.len))
+		if(DNA_TAIL_BLOCK)
+			set_uni_feature_block(blocknumber, construct_block(GLOB.tails_list.Find(features["tail_lizard"]), GLOB.tails_list.len))
+		if(DNA_SNOUT_BLOCK)
+			set_uni_feature_block(blocknumber, construct_block(GLOB.snouts_list.Find(features["snout"]), GLOB.snouts_list.len))
+		if(DNA_HORNS_BLOCK)
+			set_uni_feature_block(blocknumber, construct_block(GLOB.horns_list.Find(features["horns"]), GLOB.horns_list.len))
+		if(DNA_FRILLS_BLOCK)
+			set_uni_feature_block(blocknumber, construct_block(GLOB.frills_list.Find(features["frills"]), GLOB.frills_list.len))
+		if(DNA_SPINES_BLOCK)
+			set_uni_feature_block(blocknumber, construct_block(GLOB.spines_list.Find(features["spines"]), GLOB.spines_list.len))
+		if(DNA_EARS_BLOCK)
+			set_uni_feature_block(blocknumber, construct_block(GLOB.ears_list.Find(features["ears"]), GLOB.ears_list.len))
+		if(DNA_MOTH_WINGS_BLOCK)
+			set_uni_feature_block(blocknumber, construct_block(GLOB.moth_wings_list.Find(features["moth_wings"]), GLOB.moth_wings_list.len))
+		if(DNA_MOTH_ANTENNAE_BLOCK)
+			set_uni_feature_block(blocknumber, construct_block(GLOB.moth_antennae_list.Find(features["moth_antennae"]), GLOB.moth_antennae_list.len))
+		if(DNA_MOTH_MARKINGS_BLOCK)
+			set_uni_feature_block(blocknumber, construct_block(GLOB.moth_markings_list.Find(features["moth_markings"]), GLOB.moth_markings_list.len))
+		if(DNA_MUSHROOM_CAPS_BLOCK)
+			set_uni_feature_block(blocknumber, construct_block(GLOB.caps_list.Find(features["caps"]), GLOB.caps_list.len))
+		if(DNA_SKRELL_HAIR_BLOCK)
+			set_uni_feature_block(blocknumber, construct_block(GLOB.skrell_hair_list.Find(features["skrell_hair"]), GLOB.skrell_hair_list.len))

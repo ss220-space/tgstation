@@ -4,6 +4,7 @@
 /datum/sprite_accessory/skrell_tail
 	name = "Skrell Male Tentacles"
 	icon = 'modular_galactic/skrell/tails.dmi'
+	em_block = FALSE
 
 /datum/sprite_accessory/skrell_tail/none
 	name = "Bald"
